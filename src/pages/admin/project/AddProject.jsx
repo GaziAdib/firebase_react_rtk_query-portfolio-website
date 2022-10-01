@@ -6,21 +6,21 @@ import { storage } from '../../../firebase';
 import { getDownloadURL, ref, uploadBytes } from '@firebase/storage';
 
 // add database for data uploading
-import { database } from '../../../firebase';
-import {ref as dbRef, set, push } from '@firebase/database';
+// import { database } from '../../../firebase';
+// import {ref as dbRef, set, push } from '@firebase/database';
 
 // import UUID
 
 import { v4 as uuidv4 } from 'uuid'
-
+import { useAddProjectMutation } from '../../../features/projects/projectsApi';
 
 
 
 const AddProject = () => {
 
-    var id = uuidv4()
+    const [addProject] = useAddProjectMutation();
 
-    var urlImage;
+    var id = uuidv4()
 
     const [progress, setProgress] = useState(0)
     const [pUrl, setUrl] = useState(null)
@@ -33,34 +33,10 @@ const AddProject = () => {
     const [projectVideoLink, setProjectVideoLink] = useState('')
     const [projectDemoLink, setProjectDemoLink] = useState('')
 
-    const formHandler = (e) => {
-        e.preventDefault() 
-     
-        const  InsertData =  () => {
-            const projectListRef = dbRef(database, '/projects');
-            const newProjectRef = push(projectListRef)
-            set(newProjectRef, {
-                id: uuidv4(),
-                projectImageUrl: pUrl,
-                projectTitle: projectTitle,
-                projectTag: projectTag,
-                projectDescription: projectDescription,
-                projectGitLink: projectGitLink,
-                projectVideoLink: projectVideoLink,
-                projectDemoLink: projectDemoLink
-            }).then(() => {
-                alert("Project Data stored successfully")
-            }).catch((error) => {
-                alert("Unsuccessful error "+error)
-            });
-        }
-
-    InsertData()
-
     const clearData = () => {
        
         setProjectTitle('')
-        setProjectImageUrl('')
+        setProjectImageUrl(null)
         setProjectTag('')
         setProjectDescription('')
         setProjectVideoLink('')
@@ -69,16 +45,55 @@ const AddProject = () => {
       
     }
 
-    clearData()
+    const formHandler = (e) => {
+        e.preventDefault() 
+
+        if(pUrl !== '') {
+            addProject({
+                id: uuidv4(),
+                projectImageUrl: pUrl,
+                projectTitle: projectTitle,
+                projectTag: projectTag,
+                projectDescription: projectDescription,
+                projectGitLink: projectGitLink,
+                projectVideoLink: projectVideoLink,
+                projectDemoLink: projectDemoLink
+            });
+        }
+
+       
+
+        // const  InsertData =  () => {
+        //     const projectListRef = dbRef(database, '/projects');
+        //     const newProjectRef = push(projectListRef)
+        //     set(newProjectRef, {
+        //         id: uuidv4(),
+        //         projectImageUrl: pUrl,
+        //         projectTitle: projectTitle,
+        //         projectTag: projectTag,
+        //         projectDescription: projectDescription,
+        //         projectGitLink: projectGitLink,
+        //         projectVideoLink: projectVideoLink,
+        //         projectDemoLink: projectDemoLink
+        //     }).then(() => {
+        //         alert("Project Data stored successfully")
+        //     }).catch((error) => {
+        //         alert("Unsuccessful error "+error)
+        //     });
+        // }
+        // InsertData()
+
+
+        clearData();
 
     }
 
-    const fileHandler = async (e) => {
 
+    const fileHandler = async (e) => {
         const localFile = e.target.files[0]
-        const storageRef = ref(storage, `/projectImages/${localFile.name}`);
+        const storageRef = ref(storage, `/projectImages/${localFile}`);
         await uploadBytes(storageRef, localFile);
-        urlImage = await getDownloadURL(storageRef);
+        const urlImage = await getDownloadURL(storageRef);
         setUrl(urlImage)
 
     }

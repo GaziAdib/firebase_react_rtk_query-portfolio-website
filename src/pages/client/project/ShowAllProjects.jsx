@@ -1,49 +1,47 @@
-import React, {useEffect,useState} from 'react'
-
-import { ref,  get,  query, orderByKey } from "firebase/database"
-import { database } from '../../../firebase'
+import React, {useState} from 'react'
 import { Grid } from '@mui/material'
 import ProjectCard from '../../../components/ProjectCard'
 import { Container } from '@mui/material'
-
-
+import { useFetchProjectsQuery } from '../../../features/projects/projectsApi'
 
 
 
 const ShowAllProjects = () => {
 
-    
-    const[projects, setProjects] = useState([])
+    const {data: projects, isLoading, isError, error} = useFetchProjectsQuery();
+
+
+    // const[projects, setProjects] = useState([])
     const [loading,setLoading] = useState(true)
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        //const dbRef = ref(database, 'projects');
+    //     //const dbRef = ref(database, 'projects');
 
-        const fetchProjects = async () => {
-            const projectRef = ref(database, "projects");
-            const projectQuery = query(projectRef, orderByKey());
+    //     const fetchProjects = async () => {
+    //         const projectRef = ref(database, "projects");
+    //         const projectQuery = query(projectRef, orderByKey());
 
-            const snapshot = await get(projectQuery);
+    //         const snapshot = await get(projectQuery);
         
-            setLoading(false);
-            if (snapshot.exists()) {
-                console.log(snapshot.val())
+    //         setLoading(false);
+    //         if (snapshot.exists()) {
+    //             console.log(snapshot.val())
                
-                setProjects((prevProjects) => {
-                    return [...prevProjects, ...Object.values(snapshot.val())];
-                });
-                console.log(projects)
+    //             setProjects((prevProjects) => {
+    //                 return [...prevProjects, ...Object.values(snapshot.val())];
+    //             });
+    //             console.log(projects)
               
                 
-            } else {
-                console.log("Data Doesnot Exist!")
-            }
-        }
+    //         } else {
+    //             console.log("Data Doesnot Exist!")
+    //         }
+    //     }
 
-        fetchProjects()
+    //     fetchProjects()
        
-    },[])
+    // },[])
 
 
     return (
@@ -53,10 +51,10 @@ const ShowAllProjects = () => {
            <Container style={{ backgroundColor: '#e8f4f8', borderRadius: '10px' }}>
             <Grid container spacing={1} justifyContent="center">
 
-                    {projects.length > 0 ? (
-                         projects.map((project) => {
+                    {projects?.length > 0 ? (
+                         projects?.map((project) => {
                             return  <Grid item xs={12} md={4} lg={4} sm={12} key={project.id}>
-                                <ProjectCard project={project}/>
+                                <ProjectCard project={project} key={project.id}/>
                             </Grid>
                         })
                    
