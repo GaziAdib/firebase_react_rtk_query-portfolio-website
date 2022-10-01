@@ -1,38 +1,270 @@
-.App {
-  text-align: center;
+.main-about-container{
+    background-color: #FDEFEF;
+    display: flex ;
+    flex-direction: row ;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 5px;
+    width: 80%;
+    text-align: center;
+   
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.left-content {
+    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.my-image {
+    height: 400px;
+    width: 400px;
+}
+
+.my-image img {
+    text-align: center;
+    height: 400px;
+    width: 400px;
+    border-radius: 100%; 
+}
+
+
+
+.aboutTitleSubTitleContainer{
+   background-color: rgb(199, 244, 255);
+   border-radius: 15px;
+   border: 2px dotted rgb(96, 96, 226);
+   margin-top: 5px;
+   margin-bottom: 5px;
+}
+
+.aboutTitleSubTitleContainer h2 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.aboutTitleSubTitleContainer h3 {
+    text-align: center;
+    font-style: italic;
+    font-size: 23px;
+}
+
+
+
+
+
+
+
+.right-content {
+    background-color: #FDEFEF;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.right-content p {
+    padding: 10px;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.social-links{
+    background-color: rgb(224, 255, 173);
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 12px;
+    text-align: center;
+    display: inline-block;
+    
+
+}
+
+
+#fb {
+   
+    color: blue;
+    padding: 30px;
+    font-size: 40px;
+    transition: 60ms;
+}
+
+#git {
+    color: green;
+    padding: 30px;
+    font-size: 40px;
+    transition: 60ms;
+}
+
+#yt {
+    color: red;
+    padding: 30px;
+    font-size: 40px;
+    transition: 60ms;
+}
+
+.social-links:hover {
+    background-color: rgb(245, 245, 245);
+    
+}
+
+#fb:hover{
+    font-size: 50px;
+}
+
+#git:hover {
+    font-size: 50px;
+}
+
+#yt:hover {
+    font-size: 50px;
+}
+
+
+
+
+
+.right-content h5 {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    letter-spacing: 2px;
+}
+
+@media only screen and (max-width: 600px) {
+    .main-about-container {
+        flex-direction: column;
+    }
   }
+
+
+
+.skill-container {
+   
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.main-about-container{
+    background-color: #FDEFEF;
+    margin: 2px;
+    padding: 4px;
 }
 
-.App-link {
-  color: #61dafb;
+
+.left-content {
+    float: left;
+    background-color: #D4F5FF;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 7px;
+    padding: 7px;
+    text-align: start;
+    box-shadow: 2px 2px 5px black;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.my-image{
+    border-radius: 10px;
+    border: 2px solid gray;
+    padding: 2px;
+    margin: 2px;
+    height: 300px;
+    width: 300px;
 }
+
+.aboutTitleSubTitleContainer{
+    background-color: #F9FFFE;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px dotted blue;
+    width: 300px;
+    border-radius: 5px;
+    
+}
+
+.aboutTitleSubTitleContainer h2 {
+    color: rgb(26, 26, 26);
+    text-align: start;
+    font-size: 20px;
+}
+
+.aboutTitleSubTitleContainer h3 {
+    color: rgb(26, 26, 26);
+    text-align: start;
+    font-size: 24px;
+}
+
+.right-content{
+    background-color: #FDEFEF;
+    color: black;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: right;
+}
+
+
+
+.right-content p {
+    font-size: 22px;
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+    
+
+} */

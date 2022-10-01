@@ -1,25 +1,68 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import BarChart from './components/BarChart';
+import AddAbout from './pages/admin/about/AddAbout';
+import AddCourse from './pages/admin/course/AddCourse';
+import AddProject from './pages/admin/project/AddProject';
+import AddSkill from './pages/admin/skills/AddSkill';
+import ShowAbout from './pages/client/about/ShowAbout';
+import ShowAllCourses from './pages/client/course/ShowAllCourses';
+import ShowAllProjects from './pages/client/project/ShowAllProjects';
+import ShowAllSkills from './pages/client/skills/ShowAllSkills';
+import Home from './pages/Home/Home';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+        <Routes>
+          
+          <Route path="/" element={<Home />} />
+          <Route path="/addProject" element={<AddProject />} />
+          <Route path="/showProjects" element={<ShowAllProjects />} />
+          <Route path="/addCourse" element={<AddCourse />} />
+          <Route path="/showAllCourses" element={<ShowAllCourses />} />
+          <Route path="/addSkill" element={<AddSkill />} />
+          <Route path="/showAllSkill" element={<ShowAllSkills />} />
+          <Route path="/addAbout" element={<AddAbout />} />
+          <Route path="/showAbout" element={<ShowAbout />} />
+          
+        </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const App = () => {
+//   return (
+//     <div>
+//         <h1>Portfolio</h1>
+//         <hr/>
+
+//       <ShowAllProjects/>
+      
+      
+     
+
+        
+//     </div>
+//   )
+// }
+
+// export default App
