@@ -3,13 +3,21 @@ import { rootApi } from "../rootApi/rootApi";
 // firebase related imports
 
 import { database } from "../../firebase";
-import { ref, set, push } from '@firebase/database';
+import { ref, set, push, get, query, orderByKey } from '@firebase/database';
 
 export const coursesApi = rootApi.injectEndpoints({
     endpoints: (builder) => ({
         fetchCourses: builder.query({
-            queryFn() {
-                return { data: 'ok' };
+           async queryFn() {
+            const courseRef = ref(database, "courses");
+            const courseQuery = query(courseRef, orderByKey());
+            const snapshot = await get(courseQuery);
+            if (snapshot.exists()) {
+                return { data: [...Object.values(snapshot.val())] };
+            } else {
+                console.log("Data Doesnot Exist!")
+            }
+
             }
         }),
 
@@ -28,3 +36,6 @@ export const coursesApi = rootApi.injectEndpoints({
         }),
     })
 }); 
+
+
+export const {  useFetchCoursesQuery, useAddCourseMutation } = coursesApi

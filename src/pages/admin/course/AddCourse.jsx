@@ -6,12 +6,18 @@ import { storage } from '../../../firebase';
 import { getDownloadURL, ref, uploadBytes } from '@firebase/storage';
 
 // add database for data uploading
-import { database } from '../../../firebase';
-import {ref as dbRef, set, push } from '@firebase/database';
+// import { database } from '../../../firebase';
+// import {ref as dbRef, set, push } from '@firebase/database';
+import { useAddCourseMutation } from '../../../features/courses/coursesApi';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const AddCourse = () => {
+
+    const [addCourse] = useAddCourseMutation();
+
+    const navigate = useNavigate();
 
     var urlImage;
 
@@ -28,11 +34,9 @@ const AddCourse = () => {
 
     const formHandler = (e) => {
         e.preventDefault() 
-     
-        const  InsertData =  () => {
-            const courseListRef = dbRef(database, 'courses');
-            const newCourseRef = push(courseListRef);
-            set(newCourseRef, {
+
+        if(courseImageUrl !== '') {
+            addCourse({
                 courseImageUrl: pUrl,
                 courseTitle: courseTitle,
                 courseTag: courseTag,
@@ -40,23 +44,21 @@ const AddCourse = () => {
                 courseGitLink: courseGitLink,
                 courseVideoLink: courseVideoLink,
                 courseDemoLink: courseDemoLink
-            }).then(() => {
-                alert("Course Data stored successfully")
-            }).catch((error) => {
-                alert("Unsuccessful error "+error)
-            });
+            })
         }
+        
+        navigate('/');
 
-    InsertData()
     }
+
 
     const fileHandler = async (e) => {
 
         const localFile = e.target.files[0]
-        const storageRef = ref(storage, `/courseImages/${localFile.name}`);
+        const storageRef = ref(storage, `/courseImages/${localFile}`);
         await uploadBytes(storageRef, localFile);
         urlImage = await getDownloadURL(storageRef);
-        setUrl(urlImage)
+        setUrl(urlImage);
 
     }
 
