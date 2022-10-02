@@ -5,9 +5,6 @@ import { FormControl, TextField, Container } from '@mui/material';
 import { storage } from '../../../firebase';
 import { getDownloadURL, ref, uploadBytes } from '@firebase/storage';
 
-// add database for data uploading
-// import { database } from '../../../firebase';
-// import {ref as dbRef, set, push } from '@firebase/database';
 import { useAddCourseMutation } from '../../../features/courses/coursesApi';
 import { useNavigate } from 'react-router-dom';
 
@@ -55,7 +52,7 @@ const AddCourse = () => {
     const fileHandler = async (e) => {
 
         const localFile = e.target.files[0]
-        const storageRef = ref(storage, `/courseImages/${localFile}`);
+        const storageRef = ref(storage, `/courseImages/${localFile.name}`);
         await uploadBytes(storageRef, localFile);
         urlImage = await getDownloadURL(storageRef);
         setUrl(urlImage);

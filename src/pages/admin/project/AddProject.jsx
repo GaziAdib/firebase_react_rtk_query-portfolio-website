@@ -13,12 +13,15 @@ import { getDownloadURL, ref, uploadBytes } from '@firebase/storage';
 
 import { v4 as uuidv4 } from 'uuid'
 import { useAddProjectMutation } from '../../../features/projects/projectsApi';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const AddProject = () => {
 
     const [addProject] = useAddProjectMutation();
+
+    const navigate = useNavigate();
 
     var id = uuidv4()
 
@@ -61,6 +64,8 @@ const AddProject = () => {
             });
         }
 
+
+
        
 
         // const  InsertData =  () => {
@@ -86,12 +91,14 @@ const AddProject = () => {
 
         clearData();
 
+        navigate('/');
+
     }
 
 
     const fileHandler = async (e) => {
         const localFile = e.target.files[0]
-        const storageRef = ref(storage, `/projectImages/${localFile}`);
+        const storageRef = ref(storage, `/projectImages/${localFile.name}`);
         await uploadBytes(storageRef, localFile);
         const urlImage = await getDownloadURL(storageRef);
         setUrl(urlImage)

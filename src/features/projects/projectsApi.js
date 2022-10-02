@@ -21,10 +21,10 @@ export const projectsApi = rootApi.injectEndpoints({
                 //     return [...prevProjects, ...Object.values(snapshot.val())];
                 // });
                 
-            } else {
+             } else {
                 
                 console.log("Data Doesnot Exist!")
-            }
+             }
                 // return { data: 'ok' };
             }
         }),
@@ -39,7 +39,22 @@ export const projectsApi = rootApi.injectEndpoints({
             } catch (err) {
                 return { error: err ? err : null };
             }
-           }
+           },
+
+          async onQueryStarted(arg, { queryFulfilled, dispatch}){
+            console.log(arg)
+            try {
+                const {data: addedProject} = await queryFulfilled;
+
+                dispatch(rootApi.util.updateQueryData('fetchProjects', undefined, (draft) => {
+                    draft?.push(addedProject)
+                }))
+
+
+            } catch(err) {
+                console.log('error in catch block')
+            }
+          }
         }),
     })
 });

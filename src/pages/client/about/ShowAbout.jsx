@@ -43,8 +43,8 @@ const ShowAbout = () => {
             
         
                 {
-                     abouts.map((about) => {
-                        return <AboutCard about={about}/>
+                     abouts.map((about, index) => {
+                        return <AboutCard about={about} key={index}/>
                     })
                 }
 

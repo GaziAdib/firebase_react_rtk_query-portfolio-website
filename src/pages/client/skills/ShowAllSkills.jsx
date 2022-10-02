@@ -3,36 +3,39 @@ import { ref,  get,  query, orderByKey } from "firebase/database"
 import { database } from '../../../firebase'
 import { Container } from '@mui/material'
 import BarChart from '../../../components/BarChart'
+import { useFetchSkillsQuery } from '../../../features/skills/skillsApi'
 
 
 const ShowAllSkills = () => {
 
-    const[skills, setSkills] = useState([])
-    const [loading,setLoading] = useState(true)
+    // const[skills, setSkills] = useState([])
+   
+    // useEffect(() => {
 
-    useEffect(() => {
+    //     async function fetchSkills() {
+    //         const skillRef = ref(database, "skills");
+    //         const skillQuery = query(skillRef, orderByKey());
 
-        async function fetchSkills() {
-            const skillRef = ref(database, "skills");
-            const skillQuery = query(skillRef, orderByKey());
+    //         const snapshot = await get(skillQuery);
+    //         setLoading(false);
 
-            const snapshot = await get(skillQuery);
-            setLoading(false);
-
-            if (snapshot.exists()) {
-                console.log(snapshot.val())
-                setSkills((prevSkills) => {
-                    return [...prevSkills, ...Object.values(snapshot.val())];
-                });
+    //         if (snapshot.exists()) {
+    //             console.log(snapshot.val())
+    //             setSkills((prevSkills) => {
+    //                 return [...prevSkills, ...Object.values(snapshot.val())];
+    //             });
                 
-            } else {
-                console.log("Data Does not Exist!")
-            }
-        }
+    //         } else {
+    //             console.log("Data Does not Exist!")
+    //         }
+    //     }
 
-        fetchSkills()
+    //     fetchSkills()
        
-    },[])
+    // },[])
+
+    const {data: skills, isLoading, isError, error } = useFetchSkillsQuery(); 
+
 
     return (
             <>
@@ -40,7 +43,7 @@ const ShowAllSkills = () => {
                     <h2>My Skills</h2>
                     <hr />
 
-                    {skills.length > 0 ? (
+                    {skills?.length > 0 ? (
                         <BarChart skills={skills}/>
                     )
                      : 

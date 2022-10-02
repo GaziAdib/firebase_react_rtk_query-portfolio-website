@@ -3,16 +3,11 @@ import { Container, Grid } from '@mui/material'
 import CourseCard from '../../../components/CourseCard'
 import { useFetchCoursesQuery } from '../../../features/courses/coursesApi'
 
-
-
-
 const ShowAllCourses = () => {
 
     const { data: courses, isLoading, isError, error } = useFetchCoursesQuery();
 
-    //console.log(courses);
-
-    
+  
     //const[courses, setCourses] = useState([])
     const [loading,setLoading] = useState(true)
 
@@ -51,9 +46,9 @@ const ShowAllCourses = () => {
                 <Grid container spacing={1} justifyContent="center">
 
                     {courses?.length > 0 ? (
-                        courses?.map((course) => {
-                            return  <Grid item xs={12} md={4} lg={4} sm={12}>
-                                <CourseCard course={course} key={course.id}/>
+                        courses?.map((course, index) => {
+                            return  <Grid item xs={12} md={4} lg={4} sm={12} key={index}>
+                                <CourseCard course={course}  />
                             </Grid>
                         })
                        
