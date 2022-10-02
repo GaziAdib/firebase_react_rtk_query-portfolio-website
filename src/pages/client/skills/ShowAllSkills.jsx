@@ -1,6 +1,4 @@
-import React, {useEffect,useState} from 'react'
-import { ref,  get,  query, orderByKey } from "firebase/database"
-import { database } from '../../../firebase'
+import React, {useState} from 'react'
 import { Container } from '@mui/material'
 import BarChart from '../../../components/BarChart'
 import { useFetchSkillsQuery } from '../../../features/skills/skillsApi'
