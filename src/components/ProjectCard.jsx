@@ -8,11 +8,16 @@ import Typography from '@mui/material/Typography';
 import Modal from 'react-modal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faYoutube, faGithub, faCodepen } from '@fortawesome/free-brands-svg-icons';
+import { useDeleteProjectMutation } from '../features/projects/projectsApi';
 
 
 
 const ProjectCard = ({ project }) => {
 
+
+const mainId = project.key; 
+
+const [deleteProject] = useDeleteProjectMutation(mainId);
     
 const customStyles = {
     content: {
@@ -36,6 +41,14 @@ const customStyles = {
         setOpen(false)
     }
 
+    const deleteSingleProject = () => {
+        console.log('delete');
+
+        deleteProject(mainId);
+
+        
+    }
+
 
 
     return (
@@ -50,11 +63,14 @@ const customStyles = {
                     alt="green iguana"
                     />
                     <CardContent>
+                    <Typography onClick={deleteSingleProject} gutterBottom variant="h5" component="div">
+                        delete
+                    </Typography>
                     <Typography gutterBottom variant="h5" component="div">
                         {project.projectTitle}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                    {project.projectDescription.slice(0,40)}...
+                    {project?.projectDescription.slice(0,40)}
                     </Typography>
                     </CardContent>
                     <CardActions>

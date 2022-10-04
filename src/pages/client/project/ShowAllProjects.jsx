@@ -8,7 +8,41 @@ import { useFetchProjectsQuery } from '../../../features/projects/projectsApi'
 
 const ShowAllProjects = () => {
 
-    const {data: projects, isLoading, isError, error} = useFetchProjectsQuery();
+    //const [projects, setProjects] = useState();
+
+    // var mydata;
+
+    const {data: projects, isLoading, isError, error} = useFetchProjectsQuery() || {};
+
+    
+
+
+    // if(!isLoading) {
+    //     //console.log([...Object.entries(data)]);
+
+    //     //  for (const [key, value] of Object.entries(data)) {
+    //     //   console.log(`${key}: ${value}`)
+
+    //     // }
+    //     console.log(projects);
+      
+
+
+
+    //     // mydata = Object.values(data)
+
+    //     // console.log(mydata);
+
+    // }
+
+
+
+    //console.log([...Object.values(data)]);
+
+    
+    // for (const [key, value] of Object.entries(projects)) {
+    //     console.log(`${key}: ${value}`)
+    // }
 
 
     // const[projects, setProjects] = useState([])
@@ -54,7 +88,7 @@ const ShowAllProjects = () => {
                     {projects?.length > 0 ? (
                          projects?.map((project) => {
                             return  <Grid item xs={12} md={4} lg={4} sm={12} key={project.id}>
-                                <ProjectCard project={project} key={project.id}/>
+                                <ProjectCard project={project} key={project.key}/>
                             </Grid>
                         })
                    
