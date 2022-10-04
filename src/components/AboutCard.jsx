@@ -23,7 +23,7 @@ const AboutCard = ({ about }) => {
                 </div>
 
                 <div className="aboutTitleSubTitleContainer">
-                    <h2>{about.aboutTitle}</h2>
+                    <h2 className="border-2 px-2 text-center bg-green-600 rounded">{about.aboutTitle}</h2>
                     <h3>{about.aboutSubTitle}</h3>
                 </div>
                 
