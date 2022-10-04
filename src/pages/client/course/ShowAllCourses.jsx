@@ -5,38 +5,9 @@ import { useFetchCoursesQuery } from '../../../features/courses/coursesApi'
 
 const ShowAllCourses = () => {
 
-    const { data: courses, isLoading, isError, error } = useFetchCoursesQuery();
+    const {data: courses, isLoading, isError, error} = useFetchCoursesQuery() || {};
 
-  
-    //const[courses, setCourses] = useState([])
     const [loading,setLoading] = useState(true)
-
-    // useEffect(() => {
-
-    //     //const dbRef = ref(database, 'courses');
-
-    //     const fetchCourses = async () => {
-    //         const courseRef = ref(database, "courses");
-    //         const courseQuery = query(courseRef, orderByKey());
-
-    //         const snapshot = await get(courseQuery);
-    //         setLoading(false);
-
-    //         if (snapshot.exists()) {
-    //             console.log(snapshot.val())
-    //             setCourses((prevCourses) => {
-    //                 return [...prevCourses, ...Object.values(snapshot.val())];
-    //             });
-    //         } else {
-    //             console.log("Data Doesnot Exist!")
-    //         }
-    //     }
-
-    //     fetchCourses()
-
-       
-    // },[])
-
 
     return (
         <>
@@ -46,13 +17,13 @@ const ShowAllCourses = () => {
                 <Grid container spacing={1} justifyContent="center">
 
                     {courses?.length > 0 ? (
-                        courses?.map((course, index) => {
-                            return  <Grid item xs={12} md={4} lg={4} sm={12} key={index}>
+                        courses?.map((course) => {
+                            return  <Grid item xs={12} md={4} lg={4} sm={12} key={course.key}>
                                 <CourseCard course={course}  />
                             </Grid>
                         })
                        
-                    ) : (<h2>No Data In Database</h2>)
+                    ) : (<h2>No Course Data In Database</h2>)
                    
                 }
 

@@ -7,6 +7,7 @@ import { ref, set, push, query, get, orderByKey, remove } from '@firebase/databa
 
 export const projectsApi = rootApi.injectEndpoints({
     endpoints: (builder) => ({
+        // fetch all projects
         fetchProjects: builder.query({
            async queryFn() {
             const projectRef = ref(database, "projects");
@@ -42,6 +43,7 @@ export const projectsApi = rootApi.injectEndpoints({
             }
         }),
 
+        // add project
         addProject: builder.mutation({
            async queryFn(data) {
             const projectListRef =  ref(database, 'projects');
@@ -70,7 +72,7 @@ export const projectsApi = rootApi.injectEndpoints({
           }
         }),
 
-
+        // delete project by key
         deleteProject: builder.mutation({
             async queryFn(id) {
                try{
@@ -108,8 +110,10 @@ export const projectsApi = rootApi.injectEndpoints({
                 }
               },
             })
-         })
+        })
     });
 
 
 export const { useFetchProjectsQuery, useAddProjectMutation, useDeleteProjectMutation } = projectsApi
+
+

@@ -8,76 +8,12 @@ import { useFetchProjectsQuery } from '../../../features/projects/projectsApi'
 
 const ShowAllProjects = () => {
 
-    //const [projects, setProjects] = useState();
-
-    // var mydata;
-
+   
     const {data: projects, isLoading, isError, error} = useFetchProjectsQuery() || {};
 
-    
-
-
-    // if(!isLoading) {
-    //     //console.log([...Object.entries(data)]);
-
-    //     //  for (const [key, value] of Object.entries(data)) {
-    //     //   console.log(`${key}: ${value}`)
-
-    //     // }
-    //     console.log(projects);
-      
-
-
-
-    //     // mydata = Object.values(data)
-
-    //     // console.log(mydata);
-
-    // }
-
-
-
-    //console.log([...Object.values(data)]);
-
-    
-    // for (const [key, value] of Object.entries(projects)) {
-    //     console.log(`${key}: ${value}`)
-    // }
-
-
-    // const[projects, setProjects] = useState([])
     const [loading,setLoading] = useState(true)
 
-    // useEffect(() => {
-
-    //     //const dbRef = ref(database, 'projects');
-
-    //     const fetchProjects = async () => {
-    //         const projectRef = ref(database, "projects");
-    //         const projectQuery = query(projectRef, orderByKey());
-
-    //         const snapshot = await get(projectQuery);
-        
-    //         setLoading(false);
-    //         if (snapshot.exists()) {
-    //             console.log(snapshot.val())
-               
-    //             setProjects((prevProjects) => {
-    //                 return [...prevProjects, ...Object.values(snapshot.val())];
-    //             });
-    //             console.log(projects)
-              
-                
-    //         } else {
-    //             console.log("Data Doesnot Exist!")
-    //         }
-    //     }
-
-    //     fetchProjects()
-       
-    // },[])
-
-
+  
     return (
         <div>
             <h2 style={{textAlign: 'center'}}>Read All Projects Data</h2>
