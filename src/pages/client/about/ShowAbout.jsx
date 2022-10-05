@@ -1,55 +1,36 @@
-import React, {useEffect,useState} from 'react'
-import { ref,  get,  query, orderByKey } from "firebase/database"
-import { database } from '../../../firebase'
-import { Grid } from '@mui/material'
-import { Container } from '@mui/material'
+import React from 'react'
 import AboutCard from '../../../components/AboutCard'
+import { useFetchAboutsQuery } from '../../../features/abouts/aboutsApi'
 
 
 
 const ShowAbout = () => {
 
     
-    const[abouts, setProjects] = useState([])
-    const [loading,setLoading] = useState(true)
-
-    useEffect(() => {
-
-        async function fetchAbouts() {
-            const aboutRef = ref(database, "abouts");
-            const aboutQuery = query(aboutRef, orderByKey());
-
-            const snapshot = await get(aboutQuery);
-            setLoading(false);
-
-            if (snapshot.exists()) {
-                console.log(snapshot.val())
-                setProjects((prevAbouts) => {
-                    return [...prevAbouts, ...Object.values(snapshot.val())];
-                });
-                
-            } else {
-                console.log("Data Does not Exist!")
-            }
-        }
-
-        fetchAbouts()
-       
-    },[])
+    const {data: abouts, isLoading, isError, error} = useFetchAboutsQuery() || {};
 
 
+    let content;
+
+    if(isLoading) {
+        content = <div>Loading</div>;
+    } else if(!isLoading && isError) {
+        content = <div>Error-{error}</div>;
+    } else if(!isLoading && !isError && abouts.length === 0) {
+        content = <div>Not Content To show</div>;
+    } else {
+        content = abouts?.map((about) => {
+            return <AboutCard about={about} key={about.key} />
+        })
+    }
+   
+
+  
     return (
         <div>
-            
         
-                {
-                     abouts?.map((about, index) => {
-                        return <AboutCard about={about} key={index}/>
-                    })
-                }
+           {content}
 
-        
-            
         </div>
     )
 }

@@ -1,11 +1,4 @@
 import React from 'react'
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { Container } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 import SocialLinks from './SocialLinks';
@@ -13,18 +6,25 @@ import SocialLinks from './SocialLinks';
 
 
 const AboutCard = ({ about }) => {
+
+    const {key, aboutTitle, aboutSubTitle, aboutShortDescription, aboutImageUrl, aboutLocation, aboutSocialMediaFbLink, aboutSocialMediaGitLink, aboutSocialMediaYtLink, aboutSocialMediaLnLink
+    } = about || {}
+
+
+    console.log(aboutTitle, aboutImageUrl)
+
     return (
         <>
 
         <div className="main-about-container">
             <div className="left-content">
                 <div className="my-image">
-                    <img src={about.aboutImageUrl} alt="myimage" />
+                    <img src={aboutImageUrl} alt="myimage" />
                 </div>
 
                 <div className="aboutTitleSubTitleContainer">
-                    <h2 className="border-2 px-2 text-center bg-green-600 rounded">{about.aboutTitle}</h2>
-                    <h3>{about.aboutSubTitle}</h3>
+                    <h2 className="border-2 px-2 text-center bg-green-600 rounded">{aboutTitle}</h2>
+                    <h3>{aboutSubTitle}</h3>
                 </div>
                 
             </div>
@@ -34,7 +34,7 @@ const AboutCard = ({ about }) => {
             <div className="right-content">
 
                 <hr style={{background: 'gray', lineHeight: '1px', height: '0.4px'}} />
-                <p>"{about.aboutShortDescription}"</p>
+                <p>"{aboutShortDescription}"</p>
                 <br />
               
         
@@ -42,9 +42,9 @@ const AboutCard = ({ about }) => {
             
                 <p style={{color: '#00BCA5', fontWeight: '600'}}>Follow Me On This Social Platforms...</p>
 
-                <SocialLinks aboutSocialMediaFbLink={about.aboutSocialMediaFbLink} aboutSocialMediaGitLink={about.aboutSocialMediaGitLink} aboutSocialMediaYtLink={about.aboutSocialMediaYtLink}/>
+                <SocialLinks aboutSocialMediaFbLink={aboutSocialMediaFbLink} aboutSocialMediaGitLink={aboutSocialMediaGitLink} aboutSocialMediaYtLink={aboutSocialMediaYtLink} aboutSocialMediaLnLink={aboutSocialMediaLnLink}/>
 
-                <h5><FontAwesomeIcon icon={faLocationArrow} /> {about.aboutLocation}</h5>
+                <h5><FontAwesomeIcon icon={faLocationArrow} /> {aboutLocation}</h5>
                
                 
             </div>
@@ -54,12 +54,6 @@ const AboutCard = ({ about }) => {
                
 
                 
-                    
-                
-                   
-               
-          
-    
        </>
     )
 }

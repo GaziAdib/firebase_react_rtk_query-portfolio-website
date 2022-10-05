@@ -1,7 +1,9 @@
 import React from 'react';
+import AdminAboutTable from '../../../components/AdminTables/AdminAboutTable';
 import AdminCourseTable from '../../../components/AdminTables/AdminCourseTable';
 import AdminProjectTable from '../../../components/AdminTables/AdminProjectTable';
 import AdminSkillTable from '../../../components/AdminTables/AdminSkillTable';
+import { useFetchAboutsQuery } from '../../../features/abouts/aboutsApi';
 import { useFetchCoursesQuery } from '../../../features/courses/coursesApi';
 import { useFetchProjectsQuery } from '../../../features/projects/projectsApi';
 import { useFetchSkillsQuery } from '../../../features/skills/skillsApi';
@@ -15,6 +17,8 @@ const Dashboard = () => {
   const {data: courses, error: courseError, isLoading: courseIsLoading} = useFetchCoursesQuery() || {};
 
   const {data: skills, error: skillError, isLoading: skillIsLoading} = useFetchSkillsQuery() || {};
+
+  const {data: abouts, error: aboutError, isLoading: aboutIsLoading} = useFetchAboutsQuery() || {};
 
   return (
     <>
@@ -35,6 +39,9 @@ const Dashboard = () => {
          <br />
          <h2 className='text-lg text-center font-bold text-white m-2 px-2 py-2'>My Skills</h2>
          <AdminSkillTable skills={skills} />
+         <br />
+         <h2 className='text-lg text-center font-bold text-white m-2 px-2 py-2'>My Abouts</h2>
+         <AdminAboutTable abouts={abouts} />
          
       
       </div>

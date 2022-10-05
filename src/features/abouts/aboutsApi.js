@@ -10,7 +10,7 @@ export const aboutApi = rootApi.injectEndpoints({
         // fetch all Abouts
         fetchAbouts: builder.query({
            async queryFn() {
-            const aboutRef = ref(database, "projects");
+            const aboutRef = ref(database, "abouts");
             const aboutQuery = query(aboutRef, orderByKey());
             const snapshot = await get(aboutQuery);
             if (snapshot.exists()) {
