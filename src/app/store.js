@@ -3,6 +3,7 @@ import { rootApi } from '../features/rootApi/rootApi';
 import projectsSliceReducer from '../features/projects/projectSlice';
 import coursesSliceReducer from '../features/courses/courseSlice';
 import skillSliceReducer from '../features/skills/skillSlice';
+import aboutSliceReducer from '../features/abouts/aboutSlice';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     projects: projectsSliceReducer,
     courses: coursesSliceReducer,
     skills: skillSliceReducer,
+    abouts: aboutSliceReducer
   },
   devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) =>
