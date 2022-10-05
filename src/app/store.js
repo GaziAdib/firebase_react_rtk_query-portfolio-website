@@ -9,7 +9,7 @@ export const store = configureStore({
     [rootApi.reducerPath]: rootApi.reducer,
     projects: projectsSliceReducer,
     courses: coursesSliceReducer,
-    skills: skillSliceReducer
+    skills: skillSliceReducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) =>

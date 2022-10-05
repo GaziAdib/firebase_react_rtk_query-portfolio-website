@@ -11,6 +11,7 @@ import ShowAllCourses from './pages/client/course/ShowAllCourses';
 import ShowAllProjects from './pages/client/project/ShowAllProjects';
 import ShowAllSkills from './pages/client/skills/ShowAllSkills';
 import Home from './pages/Home/Home';
+import Dashboard from './pages/admin/dashboard/Dashboard';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>
           
           <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/addProject" element={<AddProject />} />
           <Route path="/showProjects" element={<ShowAllProjects />} />
           <Route path="/addCourse" element={<AddCourse />} />

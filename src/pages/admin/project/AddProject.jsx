@@ -65,30 +65,6 @@ const AddProject = () => {
         }
 
 
-
-       
-
-        // const  InsertData =  () => {
-        //     const projectListRef = dbRef(database, '/projects');
-        //     const newProjectRef = push(projectListRef)
-        //     set(newProjectRef, {
-        //         id: uuidv4(),
-        //         projectImageUrl: pUrl,
-        //         projectTitle: projectTitle,
-        //         projectTag: projectTag,
-        //         projectDescription: projectDescription,
-        //         projectGitLink: projectGitLink,
-        //         projectVideoLink: projectVideoLink,
-        //         projectDemoLink: projectDemoLink
-        //     }).then(() => {
-        //         alert("Project Data stored successfully")
-        //     }).catch((error) => {
-        //         alert("Unsuccessful error "+error)
-        //     });
-        // }
-        // InsertData()
-
-
         clearData();
 
         navigate('/');

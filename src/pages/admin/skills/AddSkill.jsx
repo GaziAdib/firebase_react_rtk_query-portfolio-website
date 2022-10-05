@@ -30,10 +30,8 @@ const AddSkill = () => {
         setSkillName('')
         setSkillScore(0)
 
-        navigate('/');
+        navigate('/dashboard');
 
-
-    
     }
 
     return (

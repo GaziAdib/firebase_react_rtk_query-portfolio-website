@@ -44,7 +44,7 @@ export const skillsApi = rootApi.injectEndpoints({
                 await set(newskillRef, data);
                 return { data: data };
              } catch (err) {
-                 return { error: err ? err : null };
+                return { error: err ? err : null };
              }
             },
  

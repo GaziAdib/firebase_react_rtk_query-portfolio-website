@@ -43,7 +43,7 @@ const ShowAbout = () => {
             
         
                 {
-                     abouts.map((about, index) => {
+                     abouts?.map((about, index) => {
                         return <AboutCard about={about} key={index}/>
                     })
                 }

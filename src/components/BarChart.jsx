@@ -54,22 +54,17 @@ const BarChart = ({skills}) => {
 
     const [myskills, setSkills] = useState([skills])
 
-    console.log(myskills)
-
-
     let skillNamesArray = []
     let skillScoresArray = []
 
     for(var item of myskills) {
-        console.log(item)
-        
+   
         for(var i of item) {
             skillNamesArray.push(i.skillName)
             skillScoresArray.push(i.skillScore)
         }
     }
 
-    console.log(skillNamesArray)
 
     const labels = [...skillNamesArray];
 
@@ -97,7 +92,7 @@ const BarChart = ({skills}) => {
 
     return (
         <div>
-            <h1>SKILL BAR CHART</h1>
+            <h1 className="text-center text-lg px-2 py-2">My Technological Skills</h1>
             <div style={{ width: '80%', height:'600px', margin: '0 auto' }}>
                 <Bar data={data}/>
             </div>
