@@ -4,18 +4,28 @@ import { useState } from 'react';
 // add storage for uploading image data
 import { storage } from '../../../firebase';
 import { getDownloadURL, ref, uploadBytes } from '@firebase/storage';
-import { async } from '@firebase/util';
+import { useAddAchievementMutation } from '../../../features/achievements/achievementsApi';
+
+// tags input in react
+import { TagsInput } from 'react-tag-input-component';
+import { useNavigate } from 'react-router-dom';
 
 const AddAchievement = () => {
 
+    const [AddAchievement] = useAddAchievementMutation();
+
+    const navigate = useNavigate();
+
+
+    const [selectedTopics, setSelectedTopics] = useState(["react"]);
     const [ThumbnailUrl, setThumbnailUrl] = useState(undefined);
     const [logoUrl, setLogoUrl] = useState(undefined);
 
-    const [achievementThumbnail, setAchievementThumbnail] = useState(undefined);
+    //const [achievementThumbnail, setAchievementThumbnail] = useState(undefined);
     const [achievementTitle, setAchievementTitle] = useState('');
     const [achievementLink, setAchievementLink] = useState('');
-    const [achievementLogo, setAchievementLogo] = useState(undefined);
-    const [achievementTopics, setAchievementTopics] = useState('');
+    //const [achievementLogo, setAchievementLogo] = useState(undefined);
+    //const [achievementTopics, setAchievementTopics] = useState('');
 
 
     // upload images for Thumbnail
@@ -39,8 +49,21 @@ const AddAchievement = () => {
     }
     
 
+
     const formHandler = (e) => {
         e.preventDefault();
+
+        if(ThumbnailUrl !== undefined  && logoUrl !== undefined) {
+            AddAchievement({
+                achievementTitle,
+                achievementTopics: selectedTopics,
+                achievementLink,
+                achievementThumbnail: ThumbnailUrl,
+                achievementLogo: logoUrl,
+            })
+        }
+
+        navigate('/dashboard');
     }
 
 
@@ -72,11 +95,23 @@ const AddAchievement = () => {
 
                         
                         <TextField required  style={{margin: '5px', padding:'5px'}} id="outlined-basic" label="Title" variant="outlined" value={achievementTitle} onChange={(e) => setAchievementTitle(e.target.value)} />
-                        <TextField required  style={{margin: '5px', padding:'5px'}} id="outlined-basic" label="Topics" variant="outlined" value={achievementTopics} onChange={(e) => setAchievementTopics(e.target.value)} />
+{/* 
+                        <TextField required  style={{margin: '5px', padding:'5px'}} id="outlined-basic" label="Topics" variant="outlined" value={achievementTopics} onChange={(e) => setAchievementTopics(e.target.value)} /> */}
+
+
+                        <TagsInput
+                            value={selectedTopics}
+                            onChange={setSelectedTopics}
+                            name="topics"
+                            placeHolder="enter topics"
+                        />
+
+
                         <TextField required  style={{margin: '5px', padding:'5px'}} id="outlined-basic" label="Link Url" variant="outlined" value={achievementLink} onChange={(e) => setAchievementLink(e.target.value)} />
                        
 
                         <button type="submit">Submit</button>
+
                     </FormControl>
                 
                 </form>

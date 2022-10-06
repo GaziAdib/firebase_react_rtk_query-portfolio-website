@@ -24,7 +24,7 @@ export const achievementsApi = rootApi.injectEndpoints({
                      achievementList.push({
                         key: key,
                         achievementTitle: data.achievementTitle,
-                        achievementTag: data.achievementTag,
+                        achievementTopics: data.achievementTopics,
                         achievementLink: data.achievementLink,
                         achievementLogo: data.achievementLogo,
                         achievementThumbnail: data.achievementThumbnail
@@ -42,7 +42,7 @@ export const achievementsApi = rootApi.injectEndpoints({
          }),
 
          // add an achievements
-        addAchievements: builder.mutation({
+        addAchievement: builder.mutation({
            async queryFn(data) {
 
             const achieveListRef = ref(database, 'achievements');
@@ -113,4 +113,4 @@ export const achievementsApi = rootApi.injectEndpoints({
  
 
 
-export const { useFetchAchievementsQuery, useAddAchievementsMutation, useDeleteAchievementMutation } = achievementsApi
+export const { useFetchAchievementsQuery, useAddAchievementMutation, useDeleteAchievementMutation } = achievementsApi
