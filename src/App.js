@@ -12,6 +12,8 @@ import ShowAllProjects from './pages/client/project/ShowAllProjects';
 import ShowAllSkills from './pages/client/skills/ShowAllSkills';
 import Home from './pages/Home/Home';
 import Dashboard from './pages/admin/dashboard/Dashboard';
+import AddAchievement from './pages/admin/achievements/AddAchievement';
+import ShowAchievements from './pages/admin/achievements/ShowAchievements';
 
 const App = () => {
   return (
@@ -28,6 +30,8 @@ const App = () => {
           <Route path="/showAllSkill" element={<ShowAllSkills />} />
           <Route path="/addAbout" element={<AddAbout />} />
           <Route path="/showAbout" element={<ShowAbout />} />
+          <Route path="/addAchievement" element={<AddAchievement/>} />
+          <Route path="/showAchievement" element={<ShowAchievements />} />
           
         </Routes>
     </BrowserRouter>
