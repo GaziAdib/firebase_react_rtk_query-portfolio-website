@@ -27,7 +27,7 @@ const ShowAchievements = () => {
     <div className="container mx-auto items-center mt-2 mb-2 ml-2 mr-2 px-2 py-2">
       <h1 className="text-center text-purple-800 mt-2mb-2 px-2 py-2">Show all Achievements</h1>
 
-      <div className="container mx-auto items-center mt-2 mb-2 ml-2 mr-2 px-2 py-2">
+      <div className="flex-row flex container items-center mt-2 mb-2 ml-2 mr-2 px-2 py-2">
           {content}
       </div>
        

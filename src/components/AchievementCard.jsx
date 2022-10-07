@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 
 const AchievementCard = ({ achievement }) => {
 
@@ -12,17 +11,15 @@ const AchievementCard = ({ achievement }) => {
         achievementTopics 
     } = achievement || {};
 
-    console.log(achievementTopics)
-
 
   return (
     <>
 
-<div className="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+<div className="justify-between items-center mx-1 my-1 px-2 py-3 w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
     <a href="#">
-        <img className="p-8 rounded-t-lg" src={achievementThumbnail} alt="product image" />
+        <img className="p-3 rounded-t-lg hover:scale-110 transition-all duration-500" src={achievementThumbnail} alt="product image" />
     </a>
-    <div className="px-5 pb-5">
+    <div className="px-3 pb-2">
         <a href="#">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{achievementTitle}</h5>
         </a>
@@ -37,9 +34,9 @@ const AchievementCard = ({ achievement }) => {
         </div>
         <div className="flex justify-between items-center">
             <span className="ml-2 mr-2 px-1 py-1 text-sm dark:text-white">
-                <button className="px-2 text-md font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">{achievementTopics[0]}</button>
-                <button className="px-1 text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">{achievementTopics[1]}</button>
-                <button className="px-1 text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 mt-1 mb-1">{achievementTopics[2]}</button>
+                <button className="px-2 ml-1 text-md font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">{achievementTopics[0]}</button>
+                <button className="px-2 ml-1 text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">{achievementTopics[1]}</button>
+                <button className="px-2 ml-1 text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 mt-1 mb-1">{achievementTopics[2]}</button>
             </span>
             <a href={achievementLink} target="_blank" className="text-white bg-purple-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Links</a>
         </div>
