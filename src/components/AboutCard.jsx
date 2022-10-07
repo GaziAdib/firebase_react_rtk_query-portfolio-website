@@ -11,8 +11,6 @@ const AboutCard = ({ about }) => {
     } = about || {}
 
 
-    console.log(aboutTitle, aboutImageUrl)
-
     return (
         <>
 

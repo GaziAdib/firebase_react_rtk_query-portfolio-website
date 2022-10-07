@@ -21,11 +21,9 @@ const AddAchievement = () => {
     const [ThumbnailUrl, setThumbnailUrl] = useState(undefined);
     const [logoUrl, setLogoUrl] = useState(undefined);
 
-    //const [achievementThumbnail, setAchievementThumbnail] = useState(undefined);
     const [achievementTitle, setAchievementTitle] = useState('');
     const [achievementLink, setAchievementLink] = useState('');
-    //const [achievementLogo, setAchievementLogo] = useState(undefined);
-    //const [achievementTopics, setAchievementTopics] = useState('');
+   
 
 
     // upload images for Thumbnail

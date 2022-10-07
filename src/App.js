@@ -14,6 +14,8 @@ import Home from './pages/Home/Home';
 import Dashboard from './pages/admin/dashboard/Dashboard';
 import AddAchievement from './pages/admin/achievements/AddAchievement';
 import ShowAchievements from './pages/admin/achievements/ShowAchievements';
+import AddExperience from './pages/admin/jobExperiences/AddExperience';
+import ShowAllExperiences from './pages/client/experience/ShowAllExperiences';
 
 const App = () => {
   return (
@@ -32,6 +34,8 @@ const App = () => {
           <Route path="/showAbout" element={<ShowAbout />} />
           <Route path="/addAchievement" element={<AddAchievement/>} />
           <Route path="/showAchievement" element={<ShowAchievements />} />
+          <Route path="/addExperience" element={<AddExperience />} />
+          <Route path="/showExperience" element={<ShowAllExperiences />} />
           
         </Routes>
     </BrowserRouter>

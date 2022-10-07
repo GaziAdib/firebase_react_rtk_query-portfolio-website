@@ -26,8 +26,8 @@ export const experiencesApi = rootApi.injectEndpoints({
                          jobPosition: data.jobPosition,
                          jobResponsibility: data.jobResponsibility,
                          jobCompany: data.jobCompany,
-                         jobStartedAt: data.jobTitle,
-                         jobEndedAt: data?.jobEndedAt ? data?.jobEndedAt : 'Current',
+                         jobStartedAt: data.jobStartedAt,
+                         jobEndedAt: data?.jobEndedAt ? data?.jobEndedAt : 'Current'
                      });
                  })
  
