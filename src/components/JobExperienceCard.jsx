@@ -7,26 +7,18 @@ const JobExperienceCard = ({ experience }) => {
   
     return (
         <>
-    
-    <div className="justify-between items-center mx-1 my-1 px-2 py-3 w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-        <div className="px-3 pb-2">
-            <a href="#">
-                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{jobTitle}</h5>
-            </a>
-            <div className="flex justify-between items-center">
-                <h4 className='text-white mt-1 mb-1 p-1 text-center font-sm'>{jobPosition}</h4>
-                <span className="ml-2 mr-2 px-1 py-1 text-sm dark:text-white">
-                    {jobResponsibility} - at Company :  <span>{jobCompany}</span>
-                </span>
-                <div className='text-white text-sm'> Job Started: {jobStartedAt} - {jobEndedAt ? jobEndedAt : ''} </div>
+        <div className="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:dark:bg-gray-700">
+            <div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:dark:bg-violet-400">
+                <h3 className="text-xl font-semibold tracking-wide">{jobPosition} - ({jobCompany}) </h3>
+                <time className="text-xs tracking-wide uppercase dark:text-gray-400">{jobStartedAt} - {jobEndedAt}</time>
+                <p className="mt-3">{jobResponsibility}</p>
             </div>
-        </div>
-    </div>
-       
+        </div> 
         
-
         </>
       )
 }
 
 export default JobExperienceCard
+
+
