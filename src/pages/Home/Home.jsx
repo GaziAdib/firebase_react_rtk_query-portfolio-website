@@ -9,12 +9,15 @@ import ShowAllExperiences from '../client/experience/ShowAllExperiences'
 const Home = () => {
     return (
         <>
+        <div className='container items-center mx-auto'>
             <ShowAllProjects/>
             <ShowAllCourses/>
             <ShowAllSkills/>
             <ShowAchievements />
             <ShowAllExperiences />
             <ShowAbout/>
+        </div>
+           
         </>
     )
 }

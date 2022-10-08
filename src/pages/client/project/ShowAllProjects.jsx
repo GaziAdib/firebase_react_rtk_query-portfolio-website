@@ -13,30 +13,32 @@ const ShowAllProjects = () => {
 
     const [loading,setLoading] = useState(true)
 
+    
+  let content;
+
+  if(isLoading) {
+      content = <div>Loading</div>;
+  } else if(!isLoading && isError) {
+      content = <div>Error-{error}</div>;
+  } else if(!isLoading && !isError && projects?.length === 0) {
+      content = <div>Not Content To show</div>;
+  } else {
+      content = projects?.map((project) => {
+          return <ProjectCard project={project} key={project.key} />
+      })
+  }
+
+
   
     return (
-        <div>
-            <h2 style={{textAlign: 'center'}}>Read All Projects Data</h2>
+        <div className='container items-center mx-auto px-1 py-5'>
+            <h2 className='text-center items-center mx-auto py-2'>Read All Projects Data</h2>
 
-           <Container style={{ backgroundColor: '#e8f4f8', borderRadius: '10px' }}>
-            <Grid container spacing={1} justifyContent="center">
-
-                    {projects?.length > 0 ? (
-                         projects?.map((project) => {
-                            return  <Grid item xs={12} md={4} lg={4} sm={12} key={project.id}>
-                                <ProjectCard project={project} key={project.key}/>
-                            </Grid>
-                        })
-                   
-                    ) : (<h2>No Data In Database</h2>)
-                   
-                }
-    
-
-    
-                </Grid>
-           </Container>
-
+            <div className='flex mx-1 my-1 px-1 py-1'>
+                {content}
+            </div>
+           
+           
         
         </div>
         
