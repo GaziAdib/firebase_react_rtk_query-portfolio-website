@@ -42,12 +42,12 @@ const AdminAchievementTable = ({ achievements }) => {
         </thead>
         <tbody>
 
-            {achievements?.length > 0 ? (achievements?.map((achievement) => {
+            {achievements?.length > 0 ? (achievements?.map((achievement, index) => {
                 const {key, achievementTitle, achievementThumbnail, achievementTopics} = achievement || {};
 
 
 
-                return  <tr key={key} class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                return  <tr key={index} class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <td class="py-4 px-6">
             
                 <img src={achievementThumbnail} height="80px" width="80px" alt="achievement thumbnail"/>

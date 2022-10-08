@@ -2,11 +2,13 @@ import React from 'react';
 import AdminAboutTable from '../../../components/AdminTables/AdminAboutTable';
 import AdminAchievementTable from '../../../components/AdminTables/AdminAchievementTable';
 import AdminCourseTable from '../../../components/AdminTables/AdminCourseTable';
+import AdminExperienceTable from '../../../components/AdminTables/AdminExperienceTable';
 import AdminProjectTable from '../../../components/AdminTables/AdminProjectTable';
 import AdminSkillTable from '../../../components/AdminTables/AdminSkillTable';
 import { useFetchAboutsQuery } from '../../../features/abouts/aboutsApi';
 import { useFetchAchievementsQuery } from '../../../features/achievements/achievementsApi';
 import { useFetchCoursesQuery } from '../../../features/courses/coursesApi';
+import { useFetchExperiencesQuery } from '../../../features/experiences/experiencesApi';
 import { useFetchProjectsQuery } from '../../../features/projects/projectsApi';
 import { useFetchSkillsQuery } from '../../../features/skills/skillsApi';
 
@@ -23,6 +25,8 @@ const Dashboard = () => {
   const {data: abouts, error: aboutError, isLoading: aboutIsLoading} = useFetchAboutsQuery() || {};
 
   const {data: achievements, error: achievementError, isLoading: achievementIsLoading} = useFetchAchievementsQuery() || {};
+
+  const {data: experiences, error: experienceError, isLoading: experienceIsLoading} = useFetchExperiencesQuery() || {};
 
   return (
     <>
@@ -49,6 +53,9 @@ const Dashboard = () => {
          <br />
          <h2 className='text-lg text-center font-bold text-white m-2 px-2 py-2'>My Achievements</h2>
          <AdminAchievementTable achievements={achievements} />
+         <br />
+         <h2 className='text-lg text-center font-bold text-white m-2 px-2 py-2'>Work Experience</h2>
+         <AdminExperienceTable experiences={experiences} />
          
       
       </div>

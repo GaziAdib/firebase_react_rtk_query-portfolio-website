@@ -2,17 +2,15 @@ import React from 'react';
 import TrashIcon from '../../assets/images/trash.png';
 import AddIcon from '../../assets/images/edit.png';
 import { Link } from 'react-router-dom';
-import { useDeleteSkillMutation } from '../../features/skills/skillsApi';
+import { useDeleteExperienceMutation } from '../../features/experiences/experiencesApi';
 
+const AdminExperienceTable = ({ experiences }) => {
 
+    const [deleteExperience] = useDeleteExperienceMutation();
 
-const AdminSkillTable = ({ skills }) => {
+    const deleteExperienceHandler = (id) => {
 
-    const [deleteSkill] = useDeleteSkillMutation();
-
-    const deleteSkillHandler = (id) => {
-
-    deleteSkill(id);
+        deleteExperience(id);
        
     }
 
@@ -26,12 +24,11 @@ const AdminSkillTable = ({ skills }) => {
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="py-3 px-6">
-                    Skill Name
+                    Job Postion
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Skill Score
+                    Company
                 </th>
-               
                 <th scope="col" class="py-3 px-6">
                     Add
                 </th>
@@ -42,30 +39,32 @@ const AdminSkillTable = ({ skills }) => {
         </thead>
         <tbody>
 
-            {skills?.length > 0 ? (skills?.map((skill, index) => {
+            {experiences?.length > 0 ? (experiences?.map((experience, index) => {
+                const {key, jobPosition, jobCompany} = experience || {};
 
-                const { key, skillName, skillScore } = skill || {};
+
 
                 return  <tr key={index} class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <td class="py-4 px-6 dark:text-white font-semibold">
-                    {skillName}
+                    {jobPosition}
                 </td>
                 <td class="py-4 px-6 font-medium">
-                    {skillScore}
+                    {jobCompany}
                 </td>
+            
                 <td class="py-4 px-6">
-                    <Link to={'/addSkill'} class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><img src={AddIcon} height="30px" width="30px" alt="add" /></Link>
+                    <Link to={'/addExperience'} class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><img src={AddIcon} height="30px" width="30px" alt="add" /></Link>
                 </td>
 
                 <td class="py-4 px-6">
-                    <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline hover:bg-red-400 rounded " onClick={() => deleteSkillHandler(key)}><img src={TrashIcon} height="30px" width="30px" alt="trash" /></button>
+                    <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline hover:bg-red-400 rounded " onClick={() => deleteExperienceHandler(key)}><img src={TrashIcon} height="30px" width="30px" alt="trash" /></button>
                 </td>
 
 
             </tr>
             })
                 
-            ) : ('no data in skills table')}
+            ) : ('no data in experience table')}
 
 
            
@@ -78,4 +77,4 @@ const AdminSkillTable = ({ skills }) => {
   )
 }
 
-export default AdminSkillTable
+export default AdminExperienceTable

@@ -50,17 +50,21 @@ export const experiencesApi = rootApi.injectEndpoints({
 
             try {
                await set(newExperienceRef, data);
+               return { data: data };
             } catch (error) {
                 console.log(error);
             }
            },
 
            async onQueryStarted(arg, { queryFulfilled, dispatch}){
-            console.log(arg)
             try {
                 const {data: addedExperience} = await queryFulfilled;
 
+                console.log(addedExperience);
+                console.log(arg);
+
                 dispatch(rootApi.util.updateQueryData('fetchExperiences', undefined, (draft) => {
+
                     draft?.push(addedExperience);
                 }))
 

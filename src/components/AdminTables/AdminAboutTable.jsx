@@ -48,11 +48,11 @@ const AdminAboutTable = ({ abouts }) => {
         </thead>
         <tbody>
 
-            {abouts?.length > 0 ? (abouts?.map((about) => {
+            {abouts?.length > 0 ? (abouts?.map((about, index) => {
 
                 const { key, aboutTitle, aboutSubTitle, aboutImageUrl, aboutLocation } = about || {};
 
-                return  <tr key={key} class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                return  <tr key={index} class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <td class="py-4 px-6">
             
                     <img src={aboutImageUrl} className="rounded border-2" height="75px" width="80px" alt="image"/>

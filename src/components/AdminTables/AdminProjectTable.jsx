@@ -42,12 +42,12 @@ const AdminProjectTable = ({ projects }) => {
         </thead>
         <tbody>
 
-            {projects?.length > 0 ? (projects?.map((project) => {
+            {projects?.length > 0 ? (projects?.map((project, index) => {
                 const {key, projectTitle, projectTag, projectImageUrl} = project || {};
 
 
 
-                return  <tr key={key} class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                return  <tr key={index} class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <td class="py-4 px-6 dark:text-white font-semibold">
                     {projectTitle}
                 </td>

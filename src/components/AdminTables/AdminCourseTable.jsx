@@ -43,11 +43,11 @@ const AdminCourseTable = ({ courses }) => {
         </thead>
         <tbody>
 
-            {courses?.length > 0 ? (courses?.map((course) => {
+            {courses?.length > 0 ? (courses?.map((course, index) => {
 
                 const {key, courseTitle, courseTag, courseImageUrl} = course || {};
 
-                return  <tr key={key} class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                return  <tr key={index} class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <td class="py-4 px-6 dark:text-white font-semibold">
                     {courseTitle}
                 </td>
