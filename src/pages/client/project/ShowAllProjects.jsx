@@ -34,7 +34,7 @@ const ShowAllProjects = () => {
         <div className='container items-center mx-auto px-1 py-5'>
             <h2 className='text-center items-center mx-auto py-2'>Read All Projects Data</h2>
 
-            <div className='flex mx-1 my-1 px-1 py-1'>
+            <div className='flex flex-row flex-wrap md:flex-wrap-reverse mx-2 my-2 px-1 py-1'>
                 {content}
             </div>
            
