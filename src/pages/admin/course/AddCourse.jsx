@@ -66,7 +66,7 @@ const AddCourse = () => {
             <div className="max-w-2xl bg-white py-10 px-5 m-auto w-full mt-10">
 
                 <div className="text-3xl mb-6 text-center ">
-                    Add Courses To Your Liking ❤️
+                    Add <b className='text-green-600'>Course</b> To Your Liking ❤️
                 </div>
                 <hr />
                 <br />
@@ -107,7 +107,7 @@ const AddCourse = () => {
                         </div>
 
                         <div className="col-span-2 text-right">
-                            <button disabled={isLoading ? isLoading : undefined} className="rounded-lg py-3 px-6 bg-green-500 text-white font-bold w-full sm:w-32 bg-gradient-to-r from-indigo-500 via-green-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500">
+                            <button type='submit' disabled={isLoading ? isLoading : undefined} className="rounded-lg py-3 px-6 bg-green-500 text-white font-bold w-full sm:w-32 bg-gradient-to-r from-indigo-500 via-green-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500">
                                 Add Course
                             </button>
                         </div>

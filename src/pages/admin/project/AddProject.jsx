@@ -79,7 +79,7 @@ const AddProject = () => {
             <div className="max-w-2xl bg-white py-10 px-5 m-auto w-full mt-10">
 
                 <div className="text-3xl mb-6 text-center ">
-                    Add Projects To Your Liking ❤️
+                    Add <b className='text-green-600'>Projects</b> To Your Liking ❤️
                 </div>
                 <hr />
                 <br />
@@ -120,7 +120,7 @@ const AddProject = () => {
                         </div>
 
                         <div className="col-span-2 text-right">
-                            <button disabled={isLoading ? isLoading : undefined} className="rounded-lg py-3 px-6 bg-green-500 text-white font-bold w-full sm:w-32 bg-gradient-to-r from-indigo-500 via-green-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500">
+                            <button type='submit' disabled={isLoading ? isLoading : undefined} className="rounded-lg py-3 px-6 bg-green-500 text-white font-bold w-full sm:w-32 bg-gradient-to-r from-indigo-500 via-green-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500">
                                 Add Project
                             </button>
                         </div>
@@ -140,33 +140,3 @@ const AddProject = () => {
 
 export default AddProject
 
-// <h1>Add Project</h1>
-// <hr />
-
-// <Container>
-//     <form onSubmit={formHandler} encType="multipart/form-data">
-//         <FormControl>
-
-//             <input
-//                 accept="image/*"
-//                 type="file"
-//                 onChange={fileHandler}
-//             />
-
-
-//             <TextField required style={{ margin: '5px', padding: '5px' }} id="outlined-basic" label="Project Title" variant="outlined" value={projectTitle} onChange={(e) => setProjectTitle(e.target.value)} />
-//             <TextField required style={{ margin: '5px', padding: '5px' }} id="outlined-basic" label="Project Tag" variant="outlined" value={projectTag} onChange={(e) => setProjectTag(e.target.value)} />
-//             <TextField required style={{ margin: '5px', padding: '5px' }} id="outlined-basic" label="Project Description" variant="outlined" multiline value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)} />
-//             <TextField required style={{ margin: '5px', padding: '5px' }} id="outlined-basic" label="Project GitHub Link" variant="outlined" value={projectGitLink} onChange={(e) => setProjectGitLink(e.target.value)} />
-//             <TextField required style={{ margin: '5px', padding: '5px' }} id="outlined-basic" label="Project Video Link" variant="outlined" value={projectVideoLink} onChange={(e) => setProjectVideoLink(e.target.value)} />
-//             <TextField required style={{ margin: '5px', padding: '5px' }} id="outlined-basic" label="Project Demo Link" variant="outlined" value={projectDemoLink} onChange={(e) => setProjectDemoLink(e.target.value)} />
-
-//             <button type="submit">Submit</button>
-//         </FormControl>
-
-//     </form>
-
-//     {/* <br/>
-
-//     <h3>Uploaded {progress} %</h3> */}
-// </Container>

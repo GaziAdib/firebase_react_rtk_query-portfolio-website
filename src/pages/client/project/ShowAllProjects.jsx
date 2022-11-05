@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
-import { Grid } from '@mui/material'
 import ProjectCard from '../../../components/ProjectCard'
-import { Container } from '@mui/material'
 import { useFetchProjectsQuery } from '../../../features/projects/projectsApi'
 
 
