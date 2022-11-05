@@ -1,5 +1,4 @@
 import React from 'react';
-import { FormControl, TextField, Container } from '@mui/material';
 import { useState } from 'react';
 // add storage for uploading image data
 import { storage } from '../../../firebase';
@@ -9,10 +8,12 @@ import { useAddAchievementMutation } from '../../../features/achievements/achiev
 // tags input in react
 import { TagsInput } from 'react-tag-input-component';
 import { useNavigate } from 'react-router-dom';
+import Error from '../../../components/ui/Error';
+
 
 const AddAchievement = () => {
 
-    const [AddAchievement] = useAddAchievementMutation();
+    const [AddAchievement, { isLoading, isError, error }] = useAddAchievementMutation();
 
     const navigate = useNavigate();
 
@@ -23,7 +24,7 @@ const AddAchievement = () => {
 
     const [achievementTitle, setAchievementTitle] = useState('');
     const [achievementLink, setAchievementLink] = useState('');
-   
+
 
 
     // upload images for Thumbnail
@@ -45,13 +46,12 @@ const AddAchievement = () => {
         const urlLogo = await getDownloadURL(storageRef2);
         setLogoUrl(urlLogo);
     }
-    
 
 
-    const formHandler = (e) => {
+    const formSubmitHandler = (e) => {
         e.preventDefault();
 
-        if(ThumbnailUrl !== undefined  && logoUrl !== undefined) {
+        if (ThumbnailUrl !== undefined && logoUrl !== undefined) {
             AddAchievement({
                 achievementTitle,
                 achievementTopics: selectedTopics,
@@ -60,67 +60,85 @@ const AddAchievement = () => {
                 achievementLogo: logoUrl,
             })
         }
-
         navigate('/dashboard');
     }
 
 
+    return (
+        <>
 
-  return (
-    <>
-        <h1>Add Achievements</h1>
-        <hr />
+            <div className="max-w-2xl bg-white py-10 px-5 m-auto w-full mt-10">
 
-        <Container>
-                <form onSubmit={formHandler} encType="multipart/form-data">
-                    <FormControl>
-                        <br />
-                        <label>Upload Achievement Thumbnail</label>
-                        <br />
-                        <input
-                            accept="image/*"
-                            type="file"
-                            onChange={fileHandlerThumbnail}
-                        />
-                        <br />
-                        <label>Upload Achievement Logo</label>
-                        <br />
+                <div className="text-3xl mb-6 text-center ">
+                    Add Achivements To Your Liking ❤️
+                </div>
+                <hr />
+                <br />
+
+                <form onSubmit={formSubmitHandler}>
+                    <div className="grid grid-cols-2 gap-4 max-w-xl m-auto">
+
+                        <div className="col-span-2">
+                            <label>Upload Thumbnail</label>
+                            <br />
                             <input
-                            accept="image/*"
-                            type="file"
-                            onChange={fileHandlerLogo}
-                        />
+                                accept="image/*"
+                                type="file"
+                                onChange={fileHandlerThumbnail}
+                            />
+                        </div>
 
-                        
-                        <TextField required  style={{margin: '5px', padding:'5px'}} id="outlined-basic" label="Title" variant="outlined" value={achievementTitle} onChange={(e) => setAchievementTitle(e.target.value)} />
-{/* 
-                        <TextField required  style={{margin: '5px', padding:'5px'}} id="outlined-basic" label="Topics" variant="outlined" value={achievementTopics} onChange={(e) => setAchievementTopics(e.target.value)} /> */}
+                        <div className="col-span-2">
+                            <label>Upload Logo</label>
+                            <br />
+                            <input
+                                accept="image/*"
+                                type="file"
+                                onChange={fileHandlerLogo}
+                            />
+                        </div>
+
+                        <div className="col-span-2 lg:col-span-1">
+                            <input type="text" value={achievementTitle} onChange={(e) => setAchievementTitle(e.target.value)} className="rounded-lg border-solid border-slate-400 border-2 p-3 md:text-xl w-full" required placeholder="Title" />
+                        </div>
+
+                        <div className="col-span-2 lg:col-span-1">
+                            <TagsInput
+                                value={selectedTopics}
+                                onChange={setSelectedTopics}
+                                name="topics"
+                                placeHolder="enter topics"
+                            />
+                        </div>
 
 
-                        <TagsInput
-                            value={selectedTopics}
-                            onChange={setSelectedTopics}
-                            name="topics"
-                            placeHolder="enter topics"
-                        />
+
+                        <div className="col-span-2">
+                            <input type="text" value={achievementLink} onChange={(e) => setAchievementLink(e.target.value)} className="rounded-lg border-solid border-slate-400 border-2 p-3 md:text-xl w-full" required placeholder="Certification Link" />
+                        </div>
 
 
-                        <TextField required  style={{margin: '5px', padding:'5px'}} id="outlined-basic" label="Link Url" variant="outlined" value={achievementLink} onChange={(e) => setAchievementLink(e.target.value)} />
-                       
+                        <div className="col-span-2 text-right">
+                            <button disabled={isLoading ? isLoading : undefined} className="rounded-lg py-3 px-6 bg-green-500 text-white font-bold w-full sm:w-32 bg-gradient-to-r from-indigo-500 via-green-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500">
+                                Add
+                            </button>
+                        </div>
 
-                        <button type="submit">Submit</button>
-
-                    </FormControl>
-                
+                    </div>
                 </form>
+                <div className="flex items-center justify-between">
+                    {!isLoading && error && <Error message={error} />}
+                </div>
+            </div>
 
-                {/* <br/>
-
-                <h3>Uploaded {progress} %</h3> */}
-        </Container>
 
         </>
-  )
+    )
 }
 
 export default AddAchievement
+
+
+
+
+
