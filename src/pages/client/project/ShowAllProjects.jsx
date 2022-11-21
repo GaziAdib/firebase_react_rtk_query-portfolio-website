@@ -1,7 +1,12 @@
 import React, {useState} from 'react'
 import ProjectCard from '../../../components/ProjectCard'
-import { useFetchProjectsQuery } from '../../../features/projects/projectsApi'
+import { useFetchProjectsQuery } from '../../../features/projects/projectsApi';
 
+// Slider Slick
+import Slider from "react-slick";
+
+import LeftArrow from "../../../assets/images/left-arrow.svg";
+import RightArrow from "../../../assets/images/right-arrow.svg";
 
 
 const ShowAllProjects = () => {
@@ -9,7 +14,54 @@ const ShowAllProjects = () => {
    
     const {data: projects, isLoading, isError, error} = useFetchProjectsQuery() || {};
 
-    const [loading,setLoading] = useState(true)
+    const [loading,setLoading] = useState(true);
+    
+    const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+        <img src={LeftArrow} alt="prevArrow" {...props} />
+      );
+    
+      const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+        <img src={RightArrow} className="shadow-lg" alt="nextArrow" {...props} />
+      );
+
+
+
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        initialSlide: 1,
+        responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                infinite: true
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                initialSlide: 2
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ],
+        prevArrow: <SlickArrowLeft />,
+        nextArrow: <SlickArrowRight />,
+        
+      };
 
     
   let content;
@@ -26,21 +78,22 @@ const ShowAllProjects = () => {
       })
   }
 
-
   
-    return (
-        <div className='container items-center mx-auto px-1 py-5'>
-            <h2 className='text-center items-center mx-auto py-2'>Read All Projects Data</h2>
+  return (
+    <div className="container flex-col items-center mx-auto px-1 py-5">
+        
 
-            <div className='flex flex-row flex-wrap md:flex-wrap-reverse mx-2 my-2 px-1 py-1'>
-                {content}
-            </div>
-           
-           
-        
-        </div>
-        
-    )
+        <Slider {...settings} className="flex">
+            {content}
+       </Slider>
+            
+
+    </div>
+      
+   );
+
+
+
 }
 
 export default ShowAllProjects
@@ -52,12 +105,77 @@ export default ShowAllProjects
 
 
 
+//    return (
+//     <div className='container grid items-center mx-auto px-1 py-5'>
+//         <h2 className='text-center items-center mx-auto py-2'>MY PROJECTS</h2>
+//         <hr />
+
+//         <div className='flex flex-row flex-wrap md:flex-wrap-reverse mx-2 my-2 px-1 py-1'>
+
+          
+//             {content}
+        
+        
+//         </div>
+       
+       
+    
+//     </div>
+    
+// )
+
+
+
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import SwiperCore, {Navigation, Pagination} from 'swiper';
+// import 'swiper/swiper.min.css';
+
+
+
+
+//   if(isLoading) {
+//       content = <div>Loading</div>;
+//   } else if(!isLoading && isError) {
+//       content = <div>Error-{error}</div>;
+//   } else if(!isLoading && !isError && projects?.length === 0) {
+//       content = <div>Not Content To show</div>;
+//   } else {
+//       content = <Swiper
+//         navigation
+//         pagination
+//         spaceBetween={30}
+//         slidesPerView={3}
+//         onSlideChange={() => console.log('Slide Change')}
+//         onSwiper={swiper => console.log(swiper)}
+//         onInit={(swiper) => console.log('Swipper Intitlized')}
+//         onReachEnd={() => console.log('end reached')}
+     
+//       >
+//         {
+//             projects?.map((project) =>{
+//                return <SwiperSlide key={project?.key}>
+//                   <ProjectCard project={project} key={project.key} /> 
+//                 </SwiperSlide>
+//             })
+//         }
+//       </Swiper>
+//   }
 
 
 
 
 
+// return <Swiper
+// spaceBetween={40}
+// slidesPerView={3}
+// onSlideChange={() => console.log('Slide Change')}
+// onSwiper={swiper => console.log(swiper)}
+// >
+//    <SwiperSlide>
+//     <ProjectCard project={project} key={project.key} />  
+//    </SwiperSlide>
 
+// </Swiper>
 
 
 

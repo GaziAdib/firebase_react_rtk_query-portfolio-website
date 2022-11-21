@@ -10,7 +10,7 @@ import HeroSection from '../client/HeroSection/HeroSection'
 const Home = () => {
     return (
         <>
-            <div className='container items-center mx-auto'>
+            <div className='items-center my-4 mx-auto'>
                 <HeroSection />
                 <ShowAllProjects />
                 <ShowAllCourses />

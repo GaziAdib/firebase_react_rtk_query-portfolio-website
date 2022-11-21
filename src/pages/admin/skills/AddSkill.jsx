@@ -14,8 +14,6 @@ const AddSkill = () => {
 
     const navigate = useNavigate();
 
-
-
     const formSubmitHandler = (e) => {
 
         e.preventDefault()

@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-
 // add storage for uploading image data
 import { storage } from '../../../firebase';
 import { getDownloadURL, ref, uploadBytes } from '@firebase/storage';
 
-
 import { useAddProjectMutation } from '../../../features/projects/projectsApi';
 import { useNavigate } from 'react-router-dom';
 import Error from '../../../components/ui/Error';
+
+// optimize images before upload
+// import Resizer from 'react-image-file-resizer';
+// import base64ToImage from 'base64-to-image';
 
 
 const AddProject = () => {
@@ -25,7 +27,33 @@ const AddProject = () => {
     const [projectDescription, setProjectDescription] = useState('')
     const [projectGitLink, setProjectGitLink] = useState('')
     const [projectVideoLink, setProjectVideoLink] = useState('')
-    const [projectDemoLink, setProjectDemoLink] = useState('')
+    const [projectDemoLink, setProjectDemoLink] = useState('');
+
+    // const [imageBase64URL, setImageBase64URL] = useState(null);
+
+    // resize file function
+
+    // const imageOptimizer = (file) => {
+    //     new Promise((resolve) => {
+    //         Resizer.imageFileResizer(
+    //             file,
+    //             300,
+    //             300,
+    //             "JPEG",
+    //             60,
+    //             0,
+    //             (uri) => {
+    //                 resolve(uri);
+    //                 console.log(uri);
+    //                 setImageBase64URL(uri);
+
+    //             },
+    //             "base64",
+    //             200,
+    //             200
+    //         );
+    //     });
+    // }
 
     const clearData = () => {
 
@@ -54,7 +82,6 @@ const AddProject = () => {
             });
         }
 
-
         clearData();
 
         navigate('/');
@@ -62,16 +89,28 @@ const AddProject = () => {
     }
 
 
+
+    // const fileHandler = async (e) => {
+    //     const localFile = e.target.files[0];
+    //     const optimizedImage = await imageOptimizer(localFile);
+    //     const storageRef = ref(storage, `/projectImages/${localFile}`);
+    //     await uploadBytes(storageRef, localFile);
+    //     const urlImage = await getDownloadURL(storageRef);
+    //     setUrl(urlImage);
+
+    // }
+
+
+
+
     const fileHandler = async (e) => {
-        const localFile = e.target.files[0]
+        const localFile = e.target.files[0];
         const storageRef = ref(storage, `/projectImages/${localFile.name}`);
         await uploadBytes(storageRef, localFile);
         const urlImage = await getDownloadURL(storageRef);
-        setUrl(urlImage)
+        setUrl(urlImage);
 
     }
-
-
 
     return (
         <>
@@ -93,6 +132,7 @@ const AddProject = () => {
                                 type="file"
                                 onChange={fileHandler}
                             />
+                            <img src={pUrl} height="200px" width="250px" />
                         </div>
 
                         <div className="col-span-2 lg:col-span-1">
