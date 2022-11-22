@@ -10,7 +10,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 const SocialLinks = ({ aboutSocialMediaFbLink, aboutSocialMediaGitLink, aboutSocialMediaYtLink, aboutSocialMediaLnLink }) => {
     return (
         <>
-            <div className="items-center text-center my-4 py-2 shadow-lg rounded-lg">
+            <div className="items-center text-center text-xl md:text-2xl lg:text-3xl my-4 py-3 shadow-lg rounded-lg">
                 <a id="fb" href={aboutSocialMediaFbLink} target="_blank"><FontAwesomeIcon icon={faFacebook} /></a>
                 <a id="git" href={aboutSocialMediaGitLink} target="_blank"><FontAwesomeIcon icon={faGithub} /></a>
                 <a id="yt" href={aboutSocialMediaYtLink} target="_blank"><FontAwesomeIcon icon={faYoutube} /></a>
