@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
-import CourseCard from '../../../components/CourseCard'
-import { useFetchCoursesQuery } from '../../../features/courses/coursesApi'
 
 // Slider Slick
 import Slider from "react-slick";
 
 import LeftArrow from "../../../assets/images/left-arrow.svg";
 import RightArrow from "../../../assets/images/right-arrow.svg";
+import { useFetchCoursesQuery } from '../../../features/courses/coursesApi';
+import CourseCard from '../../../components/CourseCard';
 
 
 const ShowAllCourses = () => {
 
+
     const { data: courses, isLoading, isError, error } = useFetchCoursesQuery() || {};
 
     const [loading, setLoading] = useState(true);
-
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
         <img src={LeftArrow} alt="prevArrow" {...props} />
@@ -54,8 +54,7 @@ const ShowAllCourses = () => {
                 breakpoint: 480,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1,
-                    initialSlide: 1
+                    slidesToScroll: 1
                 }
             }
         ],
@@ -65,9 +64,6 @@ const ShowAllCourses = () => {
     };
 
 
-
-
-
     let content;
 
     if (isLoading) {
@@ -75,10 +71,10 @@ const ShowAllCourses = () => {
     } else if (!isLoading && isError) {
         content = <div>Error-{error}</div>;
     } else if (!isLoading && !isError && courses?.length === 0) {
-        content = <div>Not Courses To show</div>;
+        content = <div>Not Content To show</div>;
     } else {
         content = courses?.map((course) => {
-            return <CourseCard course={course} key={course?.key} />
+            return <CourseCard course={course} key={course.key} />
         })
     }
 
@@ -87,13 +83,7 @@ const ShowAllCourses = () => {
         <div className="container flex-col items-center mx-auto px-1 py-5">
 
 
-            {/* <div className='flex'>
-                {content}
-            </div> */}
-
-
-
-            <Slider {...settings} className="flex">
+            <Slider {...settings} className="flex-col">
                 {content}
             </Slider>
 
@@ -101,10 +91,12 @@ const ShowAllCourses = () => {
         </div>
 
     );
+
+
+
 }
 
 export default ShowAllCourses
-
 
 
 

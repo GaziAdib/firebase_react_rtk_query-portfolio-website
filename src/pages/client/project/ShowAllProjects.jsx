@@ -80,15 +80,23 @@ const ShowAllProjects = () => {
 
   
   return (
-    <div className="container flex-col items-center mx-auto px-1 py-5">
-        
+    <>
 
-        <Slider {...settings} className="flex">
-            {content}
-       </Slider>
-            
+<h2 className='text-center text-3xl items-center text-bold text-gray-600 mb-5 my-2 py-1 underline decoration-wavy'>My Projects</h2>
+<hr className='border-2 text-center' />
 
-    </div>
+
+<div className="container flex-col items-center mx-auto px-1 py-5">
+
+
+<Slider {...settings} className="flex">
+    {content}
+</Slider>
+    
+
+</div>
+    </>
+    
       
    );
 

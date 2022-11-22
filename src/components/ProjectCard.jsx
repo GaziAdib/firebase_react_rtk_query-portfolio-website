@@ -17,10 +17,6 @@ const ProjectCard = ({ project }) => {
     const { key, projectTitle, projectDescription, projectTag, projectDemoLink, projectImageUrl, projectVideoLink, projectGitLink } = project || {};
 
 
-    const mainId = key;
-
-    const [deleteProject] = useDeleteProjectMutation(mainId);
-
     const customStyles = {
         content: {
             top: '40%',
@@ -43,13 +39,7 @@ const ProjectCard = ({ project }) => {
         setOpen(false)
     }
 
-    const deleteSingleProject = () => {
-        console.log('delete');
 
-        deleteProject(mainId);
-
-
-    }
 
 
 

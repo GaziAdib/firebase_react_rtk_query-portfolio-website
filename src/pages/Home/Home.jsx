@@ -10,8 +10,8 @@ import HeroSection from '../client/HeroSection/HeroSection'
 const Home = () => {
     return (
         <>
-            <div className='items-center my-4 mx-auto'>
-                <HeroSection />
+            <div className='items-center my-5 py-1 px-1 mx-auto'>
+                <ShowAbout />
                 <ShowAllProjects />
                 <ShowAllCourses />
                 <ShowAllSkills />

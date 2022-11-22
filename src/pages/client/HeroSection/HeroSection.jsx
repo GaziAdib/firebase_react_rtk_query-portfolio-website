@@ -9,7 +9,7 @@ const HeroSection = () => {
 
     const { data: abouts, isLoading, error } = useFetchAboutsQuery() || {};
 
-    console.log(abouts)
+    console.log(abouts);
 
 
 
@@ -35,11 +35,6 @@ const HeroSection = () => {
                                 <img src={item?.aboutImageUrl} alt="mockup" />
                             </div>
                         </div>
-
-
-
-
-
 
 
 
