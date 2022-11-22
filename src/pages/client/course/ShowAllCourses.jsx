@@ -1,38 +1,106 @@
 import React, { useState } from 'react'
-import { Container, Grid } from '@mui/material'
 import CourseCard from '../../../components/CourseCard'
 import { useFetchCoursesQuery } from '../../../features/courses/coursesApi'
+
+// Slider Slick
+import Slider from "react-slick";
+
+import LeftArrow from "../../../assets/images/left-arrow.svg";
+import RightArrow from "../../../assets/images/right-arrow.svg";
+
 
 const ShowAllCourses = () => {
 
     const { data: courses, isLoading, isError, error } = useFetchCoursesQuery() || {};
 
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+
+
+    const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+        <img src={LeftArrow} alt="prevArrow" {...props} />
+    );
+
+    const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+        <img src={RightArrow} className="shadow-lg" alt="nextArrow" {...props} />
+    );
+
+
+
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        initialSlide: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1
+                }
+            }
+        ],
+        prevArrow: <SlickArrowLeft />,
+        nextArrow: <SlickArrowRight />,
+
+    };
+
+
+
+
+
+    let content;
+
+    if (isLoading) {
+        content = <div>Loading</div>;
+    } else if (!isLoading && isError) {
+        content = <div>Error-{error}</div>;
+    } else if (!isLoading && !isError && courses?.length === 0) {
+        content = <div>Not Courses To show</div>;
+    } else {
+        content = courses?.map((course) => {
+            return <CourseCard course={course} key={course?.key} />
+        })
+    }
+
 
     return (
-        <>
-            <h2 style={{ textAlign: 'center' }}>MY COURSES</h2>
-
-            <Container style={{ backgroundColor: '#e8f4f8', borderRadius: '10px' }}>
-                <Grid container spacing={1} justifyContent="center">
-
-                    {courses?.length > 0 ? (
-                        courses?.map((course) => {
-                            return <Grid item xs={12} md={4} lg={4} sm={12} key={course.key}>
-                                <CourseCard course={course} />
-                            </Grid>
-                        })
-
-                    ) : (<h2>No Course Data In Database</h2>)
-
-                    }
-
-                </Grid>
-            </Container>
+        <div className="container flex-col items-center mx-auto px-1 py-5">
 
 
-        </>
-    )
+            {/* <div className='flex'>
+                {content}
+            </div> */}
+
+
+
+            <Slider {...settings} className="flex">
+                {content}
+            </Slider>
+
+
+        </div>
+
+    );
 }
 
 export default ShowAllCourses
