@@ -27,6 +27,7 @@ const ShowAllProjects = () => {
 
 
     const settings = {
+      arrows: true,
         dots: false,
         infinite: true,
         speed: 500,
@@ -82,17 +83,22 @@ const ShowAllProjects = () => {
   return (
     <>
 
-<h2 className='text-center text-3xl items-center text-bold text-gray-600 mb-5 my-2 py-1 underline decoration-wavy'>My Projects</h2>
-<hr className='border-2 text-center' />
+<h2 className='text-center text-3xl items-center text-bold text-white mb-5 my-2 py-1 underline decoration-wavy'>My Projects</h2>
+<hr style={{ width: '70%', margin: 'auto', height: '2px' }}/>
 
 
-<div className="container flex-col items-center mx-auto px-1 py-5">
+<div className="container items-center mx-auto px-1 py-5">
 
+<div className='flex-col md:flex-row'>
 
 <Slider {...settings} className="flex">
     {content}
 </Slider>
     
+
+</div>
+
+
 
 </div>
     </>

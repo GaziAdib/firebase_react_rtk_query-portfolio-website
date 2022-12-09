@@ -9,31 +9,43 @@ const ShowAchievements = () => {
 
   let content;
 
-  if(isLoading) {
-      content = <div>Loading</div>;
-  } else if(!isLoading && isError) {
-      content = <div>Error-{error}</div>;
-  } else if(!isLoading && !isError && achievements?.length === 0) {
-      content = <div>Not Content To show</div>;
+  if (isLoading) {
+    content = <div>Loading</div>;
+  } else if (!isLoading && isError) {
+    content = <div>Error-{error}</div>;
+  } else if (!isLoading && !isError && achievements?.length === 0) {
+    content = <div>Not Content To show</div>;
   } else {
-      content = achievements?.map((achievement) => {
-          return <AchievementCard achievement={achievement} key={achievement.key} />
-      })
+    content = achievements?.map((achievement) => {
+      return <AchievementCard achievement={achievement} key={achievement.key} />
+    })
   }
 
 
 
   return (
-    <div className="container mx-auto items-center mt-2 mb-2 ml-2 mr-2 px-2 py-2">
-      <h1 className="text-center text-purple-800 mt-2mb-2 px-2 py-2">Show all Achievements</h1>
 
-      <div className="flex-row flex container items-center mt-2 mb-2 ml-2 mr-2 px-2 py-2">
+    <>
+
+      <h2 className='text-center text-3xl  items-center text-bold text-blue-200 mb-5 my-2 py-1 underline decoration-wavy'>My Achievements</h2>
+
+      <div className="container items-center mx-auto px-1 py-3">
+
+
+        <div className="flex flex-col md:flex-row sm:flex-row gap-3 sm:gap-1 md:gap-2 items-center mt-2 mb-2">
           {content}
-      </div>
-       
+        </div>
 
-    </div>
+
+      </div>
+    </>
+
+
+
+
+
   )
 }
 
 export default ShowAchievements
+

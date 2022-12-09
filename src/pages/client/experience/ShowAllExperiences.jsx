@@ -24,12 +24,11 @@ const ShowAllExperiences = () => {
 
 
   return (
-    <div className="container mx-auto items-center mt-2 mb-2  px-2 py-2">
-      <h1 className="text-center text-purple-800 mt-2mb-2 px-2 py-2">Show All Experiences</h1>
+    <div className="container mx-auto items-center mt-2 mb-2 px-2 py-2">
+      <h2 className='text-center text-3xl items-center text-bold text-blue-200 mb-5 my-2 py-1 underline decoration-wavy'>Work Experience</h2>
 
-
-      <div className="flex-row flex container items-center rounded ml-60 px-2 py-2">
-        <section className="dark:bg-gray-800 dark:text-gray-100 ">
+      <div className="flex sm:flex-col items-center rounded ml-70 px-2 py-2">
+        <section className="dark:bg-gray-800 dark:text-gray-100 rounded-lg">
           <div className="container max-w-5xl px-4 py-12">
             <div className="grid gap-4 mx-4 sm:grid-cols-12">
               <div className="col-span-12 sm:col-span-3">
@@ -54,3 +53,17 @@ const ShowAllExperiences = () => {
 }
 
 export default ShowAllExperiences
+
+{/* <h2 className='text-center text-3xl items-center text-bold text-gray-600 mb-5 my-2 py-1 underline decoration-wavy'>My Achievements</h2>
+<hr className='border-2 text-center' />
+
+
+<div className="container flex-col items-center mx-auto px-1 py-5">
+
+
+  <div className="flex flex-row gap-4 items-center mt-2 mb-2 ml-2 mr-2 px-2 py-2">
+    {content}
+  </div>
+
+
+</div> */}

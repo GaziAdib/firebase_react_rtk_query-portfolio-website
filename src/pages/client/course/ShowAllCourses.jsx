@@ -16,17 +16,18 @@ const ShowAllCourses = () => {
 
     const [loading, setLoading] = useState(true);
 
-    const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    const SlickArrLeft = ({ currentSlide, slideCount, ...props }) => (
         <img src={LeftArrow} alt="prevArrow" {...props} />
     );
 
-    const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    const SlickArrRight = ({ currentSlide, slideCount, ...props }) => (
         <img src={RightArrow} className="shadow-lg" alt="nextArrow" {...props} />
     );
 
 
 
     const settings = {
+        arrows: true,
         dots: false,
         infinite: true,
         speed: 500,
@@ -38,8 +39,8 @@ const ShowAllCourses = () => {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 2,
-                    infinite: true
+                    slidesToScroll: 2
+
                 }
             },
             {
@@ -58,8 +59,8 @@ const ShowAllCourses = () => {
                 }
             }
         ],
-        prevArrow: <SlickArrowLeft />,
-        nextArrow: <SlickArrowRight />,
+        prevArrow: <SlickArrLeft />,
+        nextArrow: <SlickArrRight />
 
     };
 
@@ -80,15 +81,20 @@ const ShowAllCourses = () => {
 
 
     return (
-        <div className="container flex-col items-center mx-auto px-1 py-5">
+        <>
+            <h2 className='text-center text-3xl items-center text-bold text-blue-200 mb-5 my-2 py-1 underline decoration-wavy'>My Courses</h2>
+            <hr style={{ width: '70%', margin: 'auto', height: '2px' }} />
+            <div className="container mt-4 flex-col items-center mx-auto px-1 py-5">
 
 
-            <Slider {...settings} className="flex-col">
-                {content}
-            </Slider>
+                <Slider {...settings} className="flex">
+                    {content}
+                </Slider>
 
 
-        </div>
+            </div>
+        </>
+
 
     );
 
