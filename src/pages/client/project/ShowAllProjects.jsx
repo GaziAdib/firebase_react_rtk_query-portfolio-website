@@ -7,6 +7,7 @@ import Slider from "react-slick";
 
 import LeftArrow from "../../../assets/images/left-arrow.svg";
 import RightArrow from "../../../assets/images/right-arrow.svg";
+import Loader from '../../../components/ui/Loader';
 
 
 const ShowAllProjects = () => {
@@ -68,11 +69,11 @@ const ShowAllProjects = () => {
   let content;
 
   if(isLoading) {
-      content = <div>Loading</div>;
+      content = <div><Loader /></div>;
   } else if(!isLoading && isError) {
       content = <div>Error-{error}</div>;
   } else if(!isLoading && !isError && projects?.length === 0) {
-      content = <div>Not Content To show</div>;
+      content = <div>No Content To Show</div>;
   } else {
       content = projects?.map((project) => {
           return <ProjectCard project={project} key={project.key} />
@@ -90,6 +91,7 @@ const ShowAllProjects = () => {
 <div className="container items-center mx-auto px-1 py-5">
 
 <div className='flex-col md:flex-row'>
+
 
 <Slider {...settings} className="flex">
     {content}
