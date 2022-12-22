@@ -10,6 +10,28 @@ import { TagsInput } from 'react-tag-input-component';
 import { useNavigate } from 'react-router-dom';
 import Error from '../../../components/ui/Error';
 
+// optimized image
+import Resizer from 'react-image-file-resizer';
+// import base64ToImage from 'base64-to-image';
+
+
+const resizeFile = (file) =>
+    new Promise((resolve) => {
+        Resizer.imageFileResizer(
+            file,
+            300,
+            300,
+            "JPEG",
+            95,
+            0,
+            (uri) => {
+                resolve(uri);
+            },
+            "file"
+        );
+    });
+
+
 
 const AddAchievement = () => {
 
@@ -30,10 +52,13 @@ const AddAchievement = () => {
     // upload images for Thumbnail
     const fileHandlerThumbnail = async (e) => {
         const localFile = e.target.files[0];
-        const storageRef = ref(storage, `/achievementThumnails/${localFile.name}`);
-        await uploadBytes(storageRef, localFile);
-        const urlThumnail = await getDownloadURL(storageRef);
-        setThumbnailUrl(urlThumnail);
+        const optimizedImage = await resizeFile(localFile);
+        if (optimizedImage?.name !== '') {
+            const storageRef = ref(storage, `/achievementThumnails/${optimizedImage?.name}`);
+            await uploadBytes(storageRef, optimizedImage);
+            const urlImage = await getDownloadURL(storageRef);
+            setThumbnailUrl(urlImage);
+        }
 
     }
 
@@ -41,7 +66,8 @@ const AddAchievement = () => {
 
     const fileHandlerLogo = async (e) => {
         const localFile2 = e.target.files[0];
-        const storageRef2 = ref(storage, `/achievementLogos/${localFile2.name}`);
+        const optimizedImage = await resizeFile(localFile2);
+        const storageRef2 = ref(storage, `/achievementLogos/${optimizedImage?.name}`);
         await uploadBytes(storageRef2, localFile2);
         const urlLogo = await getDownloadURL(storageRef2);
         setLogoUrl(urlLogo);
