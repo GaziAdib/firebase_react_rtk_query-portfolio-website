@@ -19,7 +19,7 @@ const resizeFile = (file) =>
             300,
             300,
             "JPEG",
-            80,
+            90,
             0,
             (uri) => {
                 resolve(uri);
@@ -92,14 +92,11 @@ const AddProject = () => {
         const optimizedImage = await resizeFile(localFile);
         console.log('op image', optimizedImage?.name);
         if (optimizedImage?.name !== '') {
-
             const storageRef = ref(storage, `/projectImages/${optimizedImage?.name}`);
             await uploadBytes(storageRef, optimizedImage);
             const urlImage = await getDownloadURL(storageRef);
             setUrl(urlImage);
         }
-
-
 
     }
 

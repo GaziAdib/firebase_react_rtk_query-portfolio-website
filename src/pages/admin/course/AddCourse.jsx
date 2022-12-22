@@ -8,6 +8,28 @@ import { useAddCourseMutation } from '../../../features/courses/coursesApi';
 import { useNavigate } from 'react-router-dom';
 import Error from '../../../components/ui/Error';
 
+// optimize images before upload
+import Resizer from 'react-image-file-resizer';
+// import base64ToImage from 'base64-to-image';
+
+
+const resizeFile = (file) =>
+    new Promise((resolve) => {
+        Resizer.imageFileResizer(
+            file,
+            300,
+            300,
+            "JPEG",
+            90,
+            0,
+            (uri) => {
+                resolve(uri);
+            },
+            "file"
+        );
+    });
+
+
 
 
 const AddCourse = () => {
@@ -49,13 +71,17 @@ const AddCourse = () => {
     }
 
 
-    const fileHandler = async (e) => {
 
-        const localFile = e.target.files[0]
-        const storageRef = ref(storage, `/courseImages/${localFile.name}`);
-        await uploadBytes(storageRef, localFile);
-        urlImage = await getDownloadURL(storageRef);
-        setUrl(urlImage);
+    const fileHandler = async (e) => {
+        const localFile = e.target.files[0];
+        const optimizedImage = await resizeFile(localFile);
+        console.log('op image', optimizedImage?.name);
+        if (optimizedImage?.name !== '') {
+            const storageRef = ref(storage, `/courseImages/${optimizedImage?.name}`);
+            await uploadBytes(storageRef, optimizedImage);
+            const urlImage = await getDownloadURL(storageRef);
+            setUrl(urlImage);
+        }
 
     }
 
