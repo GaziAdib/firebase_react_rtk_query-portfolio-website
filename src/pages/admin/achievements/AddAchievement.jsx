@@ -66,9 +66,9 @@ const AddAchievement = () => {
 
     const fileHandlerLogo = async (e) => {
         const localFile2 = e.target.files[0];
-        const optimizedImage = await resizeFile(localFile2);
-        const storageRef2 = ref(storage, `/achievementLogos/${optimizedImage?.name}`);
-        await uploadBytes(storageRef2, localFile2);
+        const optimizedImage2 = await resizeFile(localFile2);
+        const storageRef2 = ref(storage, `/achievementLogos/${optimizedImage2?.name}`);
+        await uploadBytes(storageRef2, optimizedImage2);
         const urlLogo = await getDownloadURL(storageRef2);
         setLogoUrl(urlLogo);
     }
