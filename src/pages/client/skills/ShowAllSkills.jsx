@@ -14,6 +14,10 @@ const ShowAllSkills = () => {
         <>
             <Container className="skill-container">
 
+                <h2 className='text-center text-3xl  items-center text-bold text-blue-200 mb-5 my-2 py-1 underline decoration-wavy'>My Technological Skills</h2>
+
+
+
                 {skills?.length > 0 ? (
                     <BarChart skills={skills} />
                 )

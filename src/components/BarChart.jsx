@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -20,7 +20,7 @@ ChartJS.register(
   Legend
 );
 
- const options = {
+const options = {
   responsive: true,
   plugins: {
     legend: {
@@ -43,61 +43,67 @@ ChartJS.register(
 //       data: [1,2,3,4],
 //       backgroundColor: 'rgba(255, 99, 132, 0.5)',
 //     }
-   
+
 //   ],
 // };
 
 
 
-const BarChart = ({skills}) => {
+const BarChart = ({ skills }) => {
 
 
-    const [myskills, setSkills] = useState([skills])
+  // const [myskills, setSkills] = useState([skills])
 
-    let skillNamesArray = []
-    let skillScoresArray = []
+  let skillNamesArray = []
+  let skillScoresArray = []
 
-    for(var item of myskills) {
-   
-        for(var i of item) {
-            skillNamesArray.push(i.skillName)
-            skillScoresArray.push(i.skillScore)
-        }
-    }
+  // for (var item of myskills) {
+
+  //   for (var i of item) {
+  //     skillNamesArray.push(i.skillName)
+  //     skillScoresArray.push(i.skillScore)
+  //   }
+  // }
 
 
-    const labels = [...skillNamesArray];
+  for (let item of skills) {
+    skillNamesArray.push(item.skillName);
+    skillScoresArray.push(item.skillScore)
+  }
 
-    const data = {
+
+  const labels = [...skillNamesArray];
+
+  const data = {
     labels,
     datasets: [
-        {
+      {
         label: 'Skill Score',
         data: [...skillScoresArray],
         backgroundColor: [
-            'rgba(255, 99, 132, 0.8)',
-            'rgba(54, 162, 235, 0.8)',
-            'rgba(255, 206, 86, 0.8)',
-            'rgba(75, 192, 192, 0.8)',
-            'rgba(153, 102, 255, 0.8)',
-            'rgba(255, 159, 64, 0.8)',
-          ],
-        },
-        
+          'rgba(255, 99, 132, 0.8)',
+          'rgba(54, 162, 235, 0.8)',
+          'rgba(255, 206, 86, 0.8)',
+          'rgba(75, 192, 192, 0.8)',
+          'rgba(153, 102, 255, 0.8)',
+          'rgba(255, 159, 64, 0.8)',
+        ],
+      },
+
 
     ],
-    };
+  };
 
 
 
-    return (
-        <div>
-            <h1 className="text-center text-lg px-2 py-2">My Technological Skills</h1>
-            <div style={{ width: '80%', height:'600px', margin: '0 auto' }}>
-                <Bar data={data}/>
-            </div>
-        </div>
-    )
+  return (
+    <div>
+      {/* <h1 className="text-center text-lg px-2 py-2">My Technological Skills</h1> */}
+      <div style={{ width: '80%', height: '600px', margin: '0 auto' }}>
+        <Bar data={data} />
+      </div>
+    </div>
+  )
 }
 
 export default BarChart
