@@ -50,7 +50,7 @@ const ShowAbout = () => {
                     aboutSocialMediaLnLink={aboutData?.aboutSocialMediaLnLink} />
             </div>
 
-            <img src='https://pbs.twimg.com/media/Fh3Mud7UoAEYXhH?format=jpg&name=4096x4096' alt='gaziadib' className='w-full md:w-4/12 round-lg object-cover rounded-lg shadow-lg border-2 border-dashed mt-2 mb-2' />
+            <img src='https://pbs.twimg.com/media/FirD77HVUAAZ4LV?format=jpg&name=small' alt='gaziadib' className='w-full md:w-4/12 round-lg object-cover rounded-lg shadow-lg border-2 border-dashed mt-2 mb-2' />
         </div>
 
 

@@ -68,7 +68,7 @@ const BarChart = ({ skills }) => {
 
   for (let item of skills) {
     skillNamesArray.push(item.skillName);
-    skillScoresArray.push(item.skillScore)
+    skillScoresArray.push(item.skillScore);
   }
 
 

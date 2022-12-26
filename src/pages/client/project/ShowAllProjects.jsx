@@ -90,15 +90,15 @@ const ShowAllProjects = () => {
 
 <div className="container items-center mx-auto px-1 py-5">
 
-<div className='flex-col md:flex-row'>
+  <div className='flex-col md:flex-row'>
 
 
-<Slider {...settings} className="flex">
-    {content}
-</Slider>
-    
+  <Slider {...settings} className="flex">
+      {content}
+  </Slider>
+      
 
-</div>
+  </div>
 
 
 

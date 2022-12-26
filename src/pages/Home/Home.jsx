@@ -5,7 +5,6 @@ import ShowAllProjects from '../client/project/ShowAllProjects'
 import ShowAllSkills from '../client/skills/ShowAllSkills'
 import ShowAchievements from '../admin/achievements/ShowAchievements';
 import ShowAllExperiences from '../client/experience/ShowAllExperiences'
-import HeroSection from '../client/HeroSection/HeroSection'
 
 const Home = () => {
     return (
