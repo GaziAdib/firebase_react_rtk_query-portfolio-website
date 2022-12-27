@@ -3,7 +3,7 @@ import React from 'react'
 const ShowQNA = () => {
     return (
         <>
-            <h1 className="text-center text-white mx-auto text-bold text-3xl px-2 py-2">Q N A Section</h1>
+            <h1 className="text-center text-white mx-auto text-bold text-3xl my-3 px-2 py-2">Q N A Section</h1>
 
             <div className="mt-5 py-5 text-center bg-gray-800 items-center rounded">
 
