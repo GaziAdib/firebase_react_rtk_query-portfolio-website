@@ -6,6 +6,7 @@ import skillSliceReducer from '../features/skills/skillSlice';
 import aboutSliceReducer from '../features/abouts/aboutSlice';
 import achievementSliceReducer from '../features/achievements/achievementSlice';
 import experienceSliceReducer from '../features/experiences/experienceSlice';
+import faqSliceReducer from '../features/faqs/faqSlice';
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     abouts: aboutSliceReducer,
     achievements: achievementSliceReducer,
     experiences: experienceSliceReducer,
+    faqs: faqSliceReducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) =>
