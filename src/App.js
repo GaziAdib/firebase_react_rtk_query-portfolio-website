@@ -1,7 +1,6 @@
 import React from 'react'
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import BarChart from './components/BarChart';
 import AddAbout from './pages/admin/about/AddAbout';
 import AddCourse from './pages/admin/course/AddCourse';
 import AddProject from './pages/admin/project/AddProject';
@@ -16,6 +15,7 @@ import AddAchievement from './pages/admin/achievements/AddAchievement';
 import ShowAchievements from './pages/admin/achievements/ShowAchievements';
 import AddExperience from './pages/admin/jobExperiences/AddExperience';
 import ShowAllExperiences from './pages/client/experience/ShowAllExperiences';
+import AddFaq from './pages/admin/faqSection/AddFaq';
 
 const App = () => {
   return (
@@ -36,6 +36,7 @@ const App = () => {
           <Route path="/showAchievement" element={<ShowAchievements />} />
           <Route path="/addExperience" element={<AddExperience />} />
           <Route path="/showExperience" element={<ShowAllExperiences />} />
+          <Route path="/addFaq" element={<AddFaq />} />
           
         </Routes>
     </BrowserRouter>
