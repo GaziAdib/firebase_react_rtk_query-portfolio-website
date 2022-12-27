@@ -5,12 +5,14 @@ import ShowAllProjects from '../client/project/ShowAllProjects'
 import ShowAllSkills from '../client/skills/ShowAllSkills'
 import ShowAchievements from '../admin/achievements/ShowAchievements';
 import ShowAllExperiences from '../client/experience/ShowAllExperiences'
+import ShowQNA from '../client/QASection/ShowQNA'
 
 const Home = () => {
     return (
         <>
             <div className='items-center my-5 py-1 px-1 mx-auto bg-gray-900'>
                 <ShowAbout />
+                <ShowQNA />
                 <ShowAllProjects />
                 <ShowAllCourses />
                 <ShowAllSkills />

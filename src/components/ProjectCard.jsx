@@ -5,6 +5,7 @@ import { faYoutube, faGithub, faCodepen } from '@fortawesome/free-brands-svg-ico
 
 
 
+
 const ProjectCard = ({ project }) => {
 
     console.log('project data: ', project);
