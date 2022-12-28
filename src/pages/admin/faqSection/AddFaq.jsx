@@ -17,15 +17,12 @@ const AddFaq = () => {
 
 
     const formSubmitHandler = (e) => {
-        e.preventDefault();
-
+        e.preventDefault()
         // Functionality to Add FAQ Section 
-
         addFaq({
-            faqQuestion,
-            faqAnswer
+            faqQuestion: faqQuestion,
+            faqAnswer: faqAnswer
         })
-
         navigate('/');
 
     }

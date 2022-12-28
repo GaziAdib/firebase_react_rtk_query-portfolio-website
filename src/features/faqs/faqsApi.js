@@ -14,16 +14,16 @@ export const faqsApi = rootApi.injectEndpoints({
                 const snapshot = await get(faqsQuery);
                 if (snapshot.exists()) {
 
-                    let faqsList = [];
+                    var faqsList = [];
 
                     snapshot.forEach((childSnapshot) => {
-                        let key = childSnapshot.key;
-                        let data = childSnapshot.val();
+                        var key = childSnapshot.key;
+                        var data = childSnapshot.val();
 
                         faqsList.push({
                             key: key,
-                            faqQuestion: data?.faqQuestion,
-                            faqAnswer: data?.faqAnswer
+                            faqQuestion: data.faqQuestion,
+                            faqAnswer: data.faqAnswer
                         });
                     })
 
@@ -40,11 +40,9 @@ export const faqsApi = rootApi.injectEndpoints({
         // add a Faq
         addFaq: builder.mutation({
             async queryFn(data) {
-
-                const faqListRef = ref(database, 'faqs');
-                const newFaqRef = await push(faqListRef);
-
                 try {
+                    const faqListRef = ref(database, 'faqs');
+                    const newFaqRef = await push(faqListRef);
                     await set(newFaqRef, data);
                 } catch (error) {
                     console.log(error);
@@ -52,7 +50,9 @@ export const faqsApi = rootApi.injectEndpoints({
             },
 
             async onQueryStarted(arg, { queryFulfilled, dispatch }) {
-                console.log(arg)
+
+                console.log('faq args', arg)
+
                 try {
                     const { data: addedFaq } = await queryFulfilled;
 
@@ -60,15 +60,13 @@ export const faqsApi = rootApi.injectEndpoints({
                         draft?.push(addedFaq);
                     }))
 
-
                 } catch (err) {
-                    console.log('error in catch block')
+                    console.log('error in catch block', err)
                 }
             }
         }),
 
         // delete FAQ by key
-
         deleteFaq: builder.mutation({
             async queryFn(id) {
                 try {

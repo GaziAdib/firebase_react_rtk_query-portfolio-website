@@ -65,7 +65,6 @@ const Dashboard = () => {
           <h2 className='text-lg text-center font-bold text-white m-2 px-2 py-2'>FAQ Section</h2>
           <AdminFaqTable faqs={faqs} />
 
-
         </div>
 
       </div>
