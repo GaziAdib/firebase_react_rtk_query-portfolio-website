@@ -78,31 +78,33 @@ const BarChart = ({ skills }) => {
     labels,
     datasets: [
       {
-        label: 'Skill Score',
+        label: 'Tech Stack Skill Score',
         data: [...skillScoresArray],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(255, 206, 86, 0.8)',
-          'rgba(75, 192, 192, 0.8)',
-          'rgba(153, 102, 255, 0.8)',
-          'rgba(255, 159, 64, 0.8)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
         ],
       },
 
-
     ],
-  };
+
+  }
+
 
 
 
   return (
     <div>
       {/* <h1 className="text-center text-lg px-2 py-2">My Technological Skills</h1> */}
-      <div style={{ width: '80%', height: '600px', margin: '0 auto' }}>
+      <div div style={{ width: '80%', height: '520px', margin: '0 auto' }
+      }>
         <Bar data={data} />
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }
 

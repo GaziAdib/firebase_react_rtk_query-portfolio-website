@@ -17,11 +17,11 @@ import AddExperience from './pages/admin/jobExperiences/AddExperience';
 import ShowAllExperiences from './pages/client/experience/ShowAllExperiences';
 import AddFaq from './pages/admin/faqSection/AddFaq';
 
+
 const App = () => {
   return (
     <BrowserRouter>
         <Routes>
-          
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/addProject" element={<AddProject />} />

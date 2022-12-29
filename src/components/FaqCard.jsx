@@ -1,9 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const FaqCard = ({ faq }) => {
 
     const { faqQuestion, faqAnswer } = faq || {};
-
 
     return (
         <div className="bg-gray-800 border-2 border-purple-900 hover:border-purple-400 items-center align-center text-center my-4 py-4 mx-2 px-2 rounded-lg shadow-lg">
