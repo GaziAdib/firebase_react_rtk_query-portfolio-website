@@ -22,8 +22,8 @@ export const faqsApi = rootApi.injectEndpoints({
 
                         faqsList.push({
                             key: key,
-                            faqQuestion: data.faqQuestion,
-                            faqAnswer: data.faqAnswer
+                            faqQuestion: data?.faqQuestion,
+                            faqAnswer: data?.faqAnswer
                         });
                     })
 
@@ -32,6 +32,7 @@ export const faqsApi = rootApi.injectEndpoints({
                 } else {
 
                     console.log("Data Does not Exist in Faqs Table!")
+
                 }
 
             }
