@@ -1,18 +1,22 @@
-.main-about-container{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-about-container {
     background-color: #FDEFEF;
-    display: flex ;
-    flex-direction: row ;
+    display: flex;
+    flex-direction: row;
     border-radius: 10px;
     margin: 0 auto;
     padding: 5px;
     width: 80%;
     text-align: center;
-   
+
 }
 
-.left-content {
-    
-}
+.left-content {}
 
 .my-image {
     height: 400px;
@@ -23,17 +27,17 @@
     text-align: center;
     height: 400px;
     width: 400px;
-    border-radius: 100%; 
+    border-radius: 100%;
 }
 
 
 
-.aboutTitleSubTitleContainer{
-   background-color: rgb(199, 244, 255);
-   border-radius: 15px;
-   border: 2px dotted rgb(96, 96, 226);
-   margin-top: 5px;
-   margin-bottom: 5px;
+.aboutTitleSubTitleContainer {
+    background-color: rgb(199, 244, 255);
+    border-radius: 15px;
+    border: 2px dotted rgb(96, 96, 226);
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .aboutTitleSubTitleContainer h2 {
@@ -46,10 +50,6 @@
     font-style: italic;
     font-size: 23px;
 }
-
-
-
-
 
 
 
@@ -74,7 +74,7 @@
 }
 
 
-.social-links{
+.social-links {
     background-color: rgb(224, 255, 173);
     border-radius: 10px;
     margin-top: 10px;
@@ -84,13 +84,13 @@
     padding: 12px;
     text-align: center;
     display: inline-block;
-    
+
 
 }
 
 
 #fb {
-   
+
     color: blue;
     padding: 30px;
     font-size: 40px;
@@ -113,10 +113,10 @@
 
 .social-links:hover {
     background-color: rgb(245, 245, 245);
-    
+
 }
 
-#fb:hover{
+#fb:hover {
     font-size: 50px;
 }
 
@@ -148,13 +148,11 @@
     .main-about-container {
         flex-direction: column;
     }
-  }
-
-
-
-.skill-container {
-   
 }
+
+
+
+.skill-container {}
 
 
 

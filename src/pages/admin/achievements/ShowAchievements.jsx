@@ -27,7 +27,7 @@ const ShowAchievements = () => {
 
     <>
 
-      <h2 className='text-center text-3xl  items-center text-bold text-blue-200 mb-5 my-2 py-1 underline decoration-wavy'>My Achievements</h2>
+      <h2 className='text-center text-3xl  items-center text-bold text-blue-200 mb-5 my-2 py-2'>My Achievements</h2>
 
       <div className="container items-center mx-auto px-1 py-3">
 

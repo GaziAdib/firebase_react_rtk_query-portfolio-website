@@ -91,6 +91,17 @@ const BarChart = ({ skills }) => {
       },
 
     ],
+    options: {
+      plugins: {
+        legend: {
+          display: true,
+          labels: {
+            color: '#fff'
+          }
+        }
+      }
+    }
+
 
   }
 
