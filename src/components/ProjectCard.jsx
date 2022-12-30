@@ -42,9 +42,9 @@ const ProjectCard = ({ project }) => {
     return (
         <>
 
-            {!open && <div className="mx-2 my-1 px-1 py-1 max-w-sm h-[480px] bg-white rounded-lg border-2 hover:border-dashed hover:border-green-200 shadow-lg dark:bg-gray-800">
+            {!open && <div className="mx-2 my-2 px-2 py-2 max-w-sm h-[480px] rounded-md shadow-lg border-b-4 border-indigo-600 hover:border-dashed hover:border-green-200 shadow-lg dark:bg-gray-800 ">
                 <a href="#">
-                    <img className="rounded-t-lg h-48 w-full rounded shadow-lg hover:scale-25" src={projectImageUrl} alt="project image" />
+                    <img className="rounded h-48 w-full rounded shadow-lg hover:scale-25" src={projectImageUrl} alt="project image" />
                 </a>
                 <div className="p-5">
                     <a href="#">

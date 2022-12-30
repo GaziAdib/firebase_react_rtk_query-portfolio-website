@@ -40,8 +40,7 @@ const ShowAllCourses = () => {
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
-                    infinite: true
-
+                    infinite: true,
                 }
             },
             {
@@ -83,8 +82,8 @@ const ShowAllCourses = () => {
 
     return (
         <>
-            <h2 className='text-center text-3xl items-center text-bold text-blue-200 mb-5 my-2 py-1 underline decoration-wavy'>My Courses</h2>
-            <hr style={{ width: '70%', margin: 'auto', height: '2px' }} />
+            <h2 className='text-center text-3xl items-center text-bold text-blue-200 mb-5 my-4 my-2 py-4'>My Courses</h2>
+
             <div className="container mt-4 flex-col items-center mx-auto px-1 py-5">
 
 
