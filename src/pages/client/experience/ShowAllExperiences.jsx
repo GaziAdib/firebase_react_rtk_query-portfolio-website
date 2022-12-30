@@ -27,7 +27,7 @@ const ShowAllExperiences = () => {
     <div className="container mx-auto items-center mt-2 mb-2 px-2 py-2">
       <h2 className='text-center text-3xl items-center text-bold text-blue-200 mb-5 my-2 py-1 underline decoration-wavy'>Work Experience</h2>
 
-      <div className="flex sm:flex-col items-center rounded ml-70 px-2 py-2">
+      <div id="experiences" className="flex sm:flex-col items-center rounded ml-70 px-2 py-2">
         <section className="dark:bg-gray-800 dark:text-gray-100 rounded-lg">
           <div className="container max-w-5xl px-4 py-12">
             <div className="grid gap-4 mx-4 sm:grid-cols-12">

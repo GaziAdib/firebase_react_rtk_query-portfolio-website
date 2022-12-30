@@ -28,7 +28,7 @@ const ShowQNA = () => {
         <>
             <h1 className="text-center text-white mx-auto text-bold text-3xl my-3 px-2 py-2">Q N A Section</h1>
 
-            <div className="mt-5 py-5 text-center bg-gray-800 items-center rounded">
+            <div id="qna" className="mt-5 py-5 text-center bg-gray-800 items-center rounded">
 
                 <div class="container mx-auto items-center mx-auto">
                     <h2 className="text-bold text-center text-slate-200 my-3 py-2 mx-auto text-3xl">Most Frequently Asked Question About me ? ☕</h2>

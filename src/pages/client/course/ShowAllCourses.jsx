@@ -84,7 +84,7 @@ const ShowAllCourses = () => {
         <>
             <h2 className='text-center text-3xl items-center text-bold text-blue-200 mb-5 my-4 my-2 py-4'>My Courses</h2>
 
-            <div className="container mt-4 flex-col items-center mx-auto px-1 py-5">
+            <div id="courses" className="container mt-4 flex-col items-center mx-auto px-1 py-5">
 
 
                 <Slider {...settings} className="flex">
