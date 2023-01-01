@@ -35,7 +35,7 @@ const ShowAbout = () => {
 
 
     return (
-        <div className='flex flex-col md:flex-row items-center justify-center rounded shadow-lg gap-10 md:gap-20 py-20 bg-gray-800'>
+        <div id='hero' className='flex flex-col md:flex-row items-center justify-center rounded shadow-lg gap-10 md:gap-20 py-20 bg-gray-800'>
             <div className='w-full md:w-6/12 mx-1 px-1'>
                 <h2 className='text-left capitalize text-5xl text-purple-200 text-bold px-1 py-1 my-2 mx-2'>{aboutData?.aboutTitle}</h2>
                 <h2 className='text-center text-2xl md:text-3xl lg:text-3xl text-purple-400 border-2 border-purple-600 border-dashed text-bold px-1 py-4 my-4 mx-1'>{aboutData?.aboutSubTitle}</h2>
