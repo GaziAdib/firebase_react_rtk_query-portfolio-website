@@ -16,6 +16,7 @@ import ShowAchievements from './pages/admin/achievements/ShowAchievements';
 import AddExperience from './pages/admin/jobExperiences/AddExperience';
 import ShowAllExperiences from './pages/client/experience/ShowAllExperiences';
 import AddFaq from './pages/admin/faqSection/AddFaq';
+import Error404Page from './components/ui/Error404Page';
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/addExperience" element={<AddExperience />} />
           <Route path="/showExperience" element={<ShowAllExperiences />} />
           <Route path="/addFaq" element={<AddFaq />} />
+          <Route path='*' element={<Error404Page/>} />
           
         </Routes>
     </BrowserRouter>
