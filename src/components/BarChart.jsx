@@ -94,6 +94,7 @@ const BarChart = ({ skills }) => {
     options: {
       plugins: {
         legend: {
+          maintainAspectRatio: true,
           display: true,
           labels: {
             color: '#fff'
@@ -111,7 +112,7 @@ const BarChart = ({ skills }) => {
   return (
     <div>
       {/* <h1 className="text-center text-lg px-2 py-2">My Technological Skills</h1> */}
-      <div div style={{ width: '80%', height: '520px', margin: '0 auto' }
+      <div style={{ width: '100%', height: 'auto' }
       }>
         <Bar data={data} />
       </div >

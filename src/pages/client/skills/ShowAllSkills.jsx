@@ -12,7 +12,7 @@ const ShowAllSkills = () => {
 
     return (
         <>
-            <Container className="skill-container">
+            <Container className="skill-container mb-12 bg-slate-900 h-[300px] md:h-[500px] lg:h-[650px]">
 
                 <h2 id="skills" className='text-center text-3xl  items-center text-bold text-blue-200 mb-5 my-2 py-1 underline decoration-wavy'>My Technological Skills</h2>
 
