@@ -273,4 +273,6 @@ body {
 
 .ui-navigation-active {
     color: aqua !important;
+    font-weight: 800;
+    letter-spacing: 1px;
 }

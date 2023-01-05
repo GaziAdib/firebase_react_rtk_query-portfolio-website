@@ -88,10 +88,10 @@ const ShowAllProjects = () => {
 
 <div id='projects' className="container items-center mx-auto px-2 py-5">
 
-  <div className='flex-col md:flex-row'>
+  <div className='flex-col rounded-md shadow-md md:flex-row px-3 py-3 mb-3 mt-2'>
 
 
-  <Slider {...settings} className="flex">
+  <Slider {...settings} className="flex-col sm:flex-row">
       {content}
   </Slider>
       

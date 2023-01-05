@@ -30,9 +30,9 @@ const ShowQNA = () => {
 
             <div id="qna" className="mt-5 py-5 text-center bg-gray-800 items-center rounded">
 
-                <div class="container mx-auto items-center mx-auto">
+                <div class="container items-center mx-auto">
                     <h2 className="text-bold text-center text-slate-200 my-3 py-2 mx-auto text-3xl">Most Frequently Asked Question About me ? ☕</h2>
-                    <div className="grid grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-6 my-5 mx-2 px-2 py-5 items-center align-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2  gap-3 my-5 mx-2 px-2 py-5 items-center align-center">
 
                         {/* 
 Each Card */}
