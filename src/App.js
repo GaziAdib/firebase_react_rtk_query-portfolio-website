@@ -17,6 +17,7 @@ import AddExperience from './pages/admin/jobExperiences/AddExperience';
 import ShowAllExperiences from './pages/client/experience/ShowAllExperiences';
 import AddFaq from './pages/admin/faqSection/AddFaq';
 import Error404Page from './components/ui/Error404Page';
+import Navbar from './components/Navbar';
 
 
 import { ToastContainer } from 'react-toastify';
@@ -26,7 +27,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
+
     <BrowserRouter>
+    <Navbar />
     <ToastContainer />
         <Routes>
           <Route path="/" element={<Home />} />
