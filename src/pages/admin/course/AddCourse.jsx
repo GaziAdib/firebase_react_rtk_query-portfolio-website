@@ -11,6 +11,7 @@ import Error from '../../../components/ui/Error';
 // optimize images before upload
 import Resizer from 'react-image-file-resizer';
 // import base64ToImage from 'base64-to-image';
+import { toast } from 'react-toastify';
 
 
 const resizeFile = (file) =>
@@ -65,6 +66,17 @@ const AddCourse = () => {
                 courseDemoLink: courseDemoLink
             })
         }
+
+        toast('New Course Added Successfully 👌', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
 
         navigate('/');
 

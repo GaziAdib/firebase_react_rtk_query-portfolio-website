@@ -3,6 +3,7 @@ import TrashIcon from '../../assets/images/trash.png';
 import AddIcon from '../../assets/images/edit.png';
 import { Link } from 'react-router-dom';
 import { useDeleteFaqMutation } from '../../features/faqs/faqsApi';
+import { toast } from 'react-toastify';
 
 
 
@@ -13,8 +14,18 @@ const AdminFaqTable = ({ faqs }) => {
 
     const deleteFaqHandler = (id) => {
 
-        // delete faq section from admin
         deleteFaq(id);
+
+        toast('FAQ Deleted Successfully 👌', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
 
     }
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useAddFaqMutation } from '../../../features/faqs/faqsApi';
 import Error from '../../../components/ui/Error';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AddFaq = () => {
 
@@ -23,6 +24,18 @@ const AddFaq = () => {
             faqQuestion: faqQuestion,
             faqAnswer: faqAnswer
         })
+
+        toast('New FAQ Added Successfully 👌', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+
         navigate('/');
 
     }

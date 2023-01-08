@@ -33,6 +33,7 @@
     "react-scroll": "^1.8.9",
     "react-slick": "^0.29.0",
     "react-tag-input-component": "^2.0.0",
+    "react-toastify": "^8.0.3",
     "swiper": "^8.4.5",
     "uuid": "^8.3.2",
     "web-vitals": "^1.1.2"

@@ -14,6 +14,7 @@ import { useAddAboutMutation } from '../../../features/abouts/aboutsApi';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import Error from '../../../components/ui/Error';
+import { toast } from 'react-toastify';
 
 
 
@@ -65,6 +66,17 @@ const AddAbout = () => {
         }
 
         navigate('/');
+
+        toast('About Section Added Successfully 👌', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
 
     }
 

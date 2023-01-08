@@ -19,9 +19,15 @@ import AddFaq from './pages/admin/faqSection/AddFaq';
 import Error404Page from './components/ui/Error404Page';
 
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 const App = () => {
   return (
     <BrowserRouter>
+    <ToastContainer />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />

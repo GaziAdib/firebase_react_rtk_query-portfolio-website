@@ -9,6 +9,7 @@ import Error from '../../../components/ui/Error';
 
 // optimize images before upload
 import Resizer from 'react-image-file-resizer';
+import { toast } from 'react-toastify';
 // import base64ToImage from 'base64-to-image';
 
 
@@ -51,8 +52,6 @@ const AddProject = () => {
     // resize file function
 
 
-
-
     const clearData = () => {
 
         setProjectTitle('')
@@ -80,6 +79,17 @@ const AddProject = () => {
             });
         }
 
+        toast('Project Added Successfully 👌', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+
         clearData();
 
         navigate('/');
@@ -101,8 +111,6 @@ const AddProject = () => {
     }
 
 
-
-
     // const fileHandler = async (e) => {
     //     const localFile = e.target.files[0];
     //     const storageRef = ref(storage, `/projectImages/${localFile.name}`);
@@ -122,6 +130,7 @@ const AddProject = () => {
                 </div>
                 <hr />
                 <br />
+
 
                 <form onSubmit={formSubmitHandler}>
                     <div className="grid grid-cols-2 gap-4 max-w-xl m-auto">

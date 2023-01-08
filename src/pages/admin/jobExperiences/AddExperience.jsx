@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAddExperienceMutation } from '../../../features/experiences/experiencesApi';
 import Error from '../../../components/ui/Error';
+import { toast } from 'react-toastify';
 
 const AddExperience = () => {
 
@@ -31,6 +32,17 @@ const AddExperience = () => {
             jobStartedAt,
             jobEndedAt
         })
+
+        toast('New Experience Added Successfully 👌', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
 
         navigate('/dashboard');
     }

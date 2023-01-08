@@ -13,6 +13,7 @@ import Error from '../../../components/ui/Error';
 // optimized image
 import Resizer from 'react-image-file-resizer';
 // import base64ToImage from 'base64-to-image';
+import { toast } from 'react-toastify';
 
 
 const resizeFile = (file) =>
@@ -86,6 +87,17 @@ const AddAchievement = () => {
                 achievementLogo: logoUrl,
             })
         }
+
+        toast('New Achievements Added Successfully 👌', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
         navigate('/dashboard');
     }
 

@@ -9,6 +9,7 @@ import ShowQNA from '../client/QASection/ShowQNA'
 import Navbar from '../../components/Navbar'
 
 
+
 const Home = () => {
     return (
         <>

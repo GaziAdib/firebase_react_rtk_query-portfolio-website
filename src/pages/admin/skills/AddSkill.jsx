@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Error from '../../../components/ui/Error';
-import { useAddSkillMutation } from '../../../features/skills/skillsApi'
+import { useAddSkillMutation } from '../../../features/skills/skillsApi';
+import { toast } from 'react-toastify';
 
 
 
@@ -28,6 +29,17 @@ const AddSkill = () => {
         }
         setSkillName('')
         setSkillScore(0)
+
+        toast('New Skills Added Successfully 👌', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
 
         navigate('/dashboard');
 
