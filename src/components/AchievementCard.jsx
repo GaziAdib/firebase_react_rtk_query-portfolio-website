@@ -15,7 +15,7 @@ const AchievementCard = ({ achievement }) => {
     return (
         <>
 
-            <div className="justify-between items-center mx-4 my-2 px-1 py-1 w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <div className="justify-between items-center mx-4 my-2 px-1 py-1 w-full bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
                     <img className="p-3 rounded-t-lg hover:scale-110 transition-all duration-500" src={achievementThumbnail} alt="product image" />
                 </a>
