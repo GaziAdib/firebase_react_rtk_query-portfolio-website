@@ -29,15 +29,15 @@ const ShowAchievements = () => {
 
       <h2 className='text-center text-3xl  items-center text-bold text-blue-200 mb-5 my-2 py-2'>My Achievements</h2>
 
-      <div id="achievements" className="container items-center align-center px-2 py-3">
 
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2  gap-3 my-5 mx-2 px-2 py-5 items-center align-center">
-          {content}
-        </div>
 
-
+      <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2  gap-3 my-5 mx-2 px-2 py-5 items-center align-center">
+        {content}
       </div>
+
+
+
     </>
 
 
