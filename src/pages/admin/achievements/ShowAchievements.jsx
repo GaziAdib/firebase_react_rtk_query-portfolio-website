@@ -4,7 +4,6 @@ import { useFetchAchievementsQuery } from '../../../features/achievements/achiev
 
 const ShowAchievements = () => {
 
-
   const { data: achievements, isLoading, isError, error } = useFetchAchievementsQuery() || {};
 
   let content;

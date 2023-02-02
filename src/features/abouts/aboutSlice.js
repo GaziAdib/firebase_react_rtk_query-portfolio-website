@@ -6,7 +6,7 @@ const initialState = {
 
 const aboutSlice = createSlice({
     name: 'abouts',
-    initialState, 
+    initialState,
 });
 
 export default aboutSlice.reducer;
