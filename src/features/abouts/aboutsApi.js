@@ -23,17 +23,17 @@ export const aboutApi = rootApi.injectEndpoints({
 
                         aboutList.push({
                             key: key,
-                            aboutTitle: data.aboutTitle,
-                            aboutSubTitle: data.aboutSubTitle,
-                            aboutLocation: data.aboutLocation,
-                            aboutShortDescription: data.aboutShortDescription,
-                            aboutImageUrl: data.aboutImageUrl,
+                            aboutTitle: data?.aboutTitle,
+                            aboutSubTitle: data?.aboutSubTitle,
+                            aboutLocation: data?.aboutLocation,
+                            aboutShortDescription: data?.aboutShortDescription,
+                            aboutImageUrl: data?.aboutImageUrl,
                             aboutResumeUrl: data?.aboutResumeUrl,
                             aboutShortVideo: data?.aboutShortVideo,
-                            aboutSocialMediaFbLink: data.aboutSocialMediaFbLink,
-                            aboutSocialMediaGitLink: data.aboutSocialMediaGitLink,
-                            aboutSocialMediaLnLink: data.aboutSocialMediaLnLink,
-                            aboutSocialMediaYtLink: data.aboutSocialMediaYtLink,
+                            aboutSocialMediaFbLink: data?.aboutSocialMediaFbLink,
+                            aboutSocialMediaGitLink: data?.aboutSocialMediaGitLink,
+                            aboutSocialMediaLnLink: data?.aboutSocialMediaLnLink,
+                            aboutSocialMediaYtLink: data?.aboutSocialMediaYtLink,
                         });
                     })
 

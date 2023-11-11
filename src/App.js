@@ -22,6 +22,7 @@ import Navbar from './components/Navbar';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import TextToSpeech from './pages/client/textToSpeech/TextToSpeech';
 
 
 
@@ -29,8 +30,9 @@ const App = () => {
   return (
 
     <BrowserRouter>
-    <Navbar />
+    {/* <Navbar /> */}
     <ToastContainer />
+    <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
